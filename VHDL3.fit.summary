@@ -1,0 +1,10 @@
+Fitter Status : Successful - Fri May 27 18:44:33 2016
+Quartus II Version : 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition
+Revision Name : VHDL3
+Top-level Entity Name : VHDL3
+Family : FLEX10K
+Device : EPF10K10LC84-4
+Timing Models : Final
+Total logic elements : 351 / 576 ( 61 % )
+Total pins : 25 / 59 ( 42 % )
+Total memory bits : 0 / 6,144 ( 0 % )

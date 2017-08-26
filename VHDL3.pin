@@ -1,0 +1,128 @@
+ -- Copyright (C) 1991-2009 Altera Corporation
+ -- Your use of Altera Corporation's design tools, logic functions 
+ -- and other software and tools, and its AMPP partner logic 
+ -- functions, and any output files from any of the foregoing 
+ -- (including device programming or simulation files), and any 
+ -- associated documentation or information are expressly subject 
+ -- to the terms and conditions of the Altera Program License 
+ -- Subscription Agreement, Altera MegaCore Function License 
+ -- Agreement, or other applicable license agreement, including, 
+ -- without limitation, that your use is for the sole purpose of 
+ -- programming logic devices manufactured by Altera and sold by 
+ -- Altera or its authorized distributors.  Please refer to the 
+ -- applicable agreement for further details.
+ -- 
+ -- This is a Quartus II output file. It is for reporting purposes only, and is
+ -- not intended for use as a Quartus II input file. This file cannot be used
+ -- to make Quartus II pin assignments - for instructions on how to make pin
+ -- assignments, please see Quartus II help.
+ ------------------------------------------------------------------------------
+
+
+
+ ------------------------------------------------------------------------------
+ -- NC         : No Connect. This pin has no internal connection to the device.
+ -- VCC_INT    : Dedicated power pin, which MUST be connected to VCC  (5.0V).
+ -- VCC_IO     : Dedicated power pin, which MUST be connected to VCC  (Refer to
+ --              the table below for voltage).
+ -- GND        : Dedicated ground pin, which MUST be connected to GND.
+ -- GND+       : Unused input. This pin should be connected to GND. It may also
+ --              be connected  to a  valid signal  on the board  (low, high, or
+ --              toggling)  if that signal is required for a different revision
+ --              of the design.
+ -- GND*       : Unused  I/O  pin.   This pin can either be left unconnected or
+ --              connected to GND.  Connecting this pin to GND will improve the
+ --              device's immunity to noise.
+ ------------------------------------------------------------------------------
+
+
+File Generation Date & Time: Fri May 27 18:44:33 2016
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+CHIP  "VHDL3"  ASSIGNED TO AN: EPF10K10LC84-4
+
+Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
+-------------------------------------------------------------------------------------------------------------
+GND+                         : 1         :        :                   :         :           :                
+GND+                         : 2         :        :                   :         :           :                
+GND*                         : 3         :        :                   :         :           :                
+VCC_INT                      : 4         : power  :                   : 5.0V    :           :                
+GND*                         : 5         :        :                   :         :           :                
+GND*                         : 6         :        :                   :         :           :                
+GND*                         : 7         :        :                   :         :           :                
+GND*                         : 8         :        :                   :         :           :                
+GND*                         : 9         :        :                   :         :           :                
+GND*                         : 10        :        :                   :         :           :                
+GND*                         : 11        :        :                   :         :           :                
+DATA0                        : 12        : input  :                   :         :           :                
+DCLK                         : 13        : bidir  :                   :         :           :                
+nCE                          : 14        : input  :                   :         :           :                
+TDI                          : 15        : input  :                   :         :           :                
+GND*                         : 16        :        :                   :         :           :                
+GND*                         : 17        :        :                   :         :           :                
+GND*                         : 18        :        :                   :         :           :                
+GND*                         : 19        :        :                   :         :           :                
+VCC_INT                      : 20        : power  :                   : 5.0V    :           :                
+output[3]                    : 21        : output : TTL               :         :           : Y              
+output[2]                    : 22        : output : TTL               :         :           : Y              
+output[1]                    : 23        : output : TTL               :         :           : Y              
+output[0]                    : 24        : output : TTL               :         :           : Y              
+GND*                         : 25        :        :                   :         :           :                
+GND_INT                      : 26        : gnd    :                   :         :           :                
+GND*                         : 27        :        :                   :         :           :                
+common_out[5]                : 28        : output : TTL               :         :           : Y              
+common_out[4]                : 29        : output : TTL               :         :           : Y              
+common_out[3]                : 30        : output : TTL               :         :           : Y              
+MSEL0                        : 31        : input  :                   :         :           :                
+MSEL1                        : 32        : input  :                   :         :           :                
+VCC_INT                      : 33        : power  :                   : 5.0V    :           :                
+nCONFIG                      : 34        : input  :                   :         :           :                
+common_out[2]                : 35        : output : TTL               :         :           : Y              
+common_out[1]                : 36        : output : TTL               :         :           : Y              
+common_out[0]                : 37        : output : TTL               :         :           : Y              
+Seg[7]                       : 38        : output : TTL               :         :           : Y              
+Seg[6]                       : 39        : output : TTL               :         :           : Y              
+VCC_INT                      : 40        : power  :                   : 5.0V    :           :                
+GND_INT                      : 41        : gnd    :                   :         :           :                
+GND+                         : 42        :        :                   :         :           :                
+clk_in                       : 43        : input  : TTL               :         :           : Y              
+GND+                         : 44        :        :                   :         :           :                
+VCC_INT                      : 45        : power  :                   : 5.0V    :           :                
+GND_INT                      : 46        : gnd    :                   :         :           :                
+Seg[5]                       : 47        : output : TTL               :         :           : Y              
+Seg[4]                       : 48        : output : TTL               :         :           : Y              
+Seg[3]                       : 49        : output : TTL               :         :           : Y              
+Seg[2]                       : 50        : output : TTL               :         :           : Y              
+Seg[1]                       : 51        : output : TTL               :         :           : Y              
+Seg[0]                       : 52        : output : TTL               :         :           : Y              
+ON_OF                        : 53        : input  : TTL               :         :           : Y              
+GND*                         : 54        :        :                   :         :           :                
+nSTATUS                      : 55        : bidir  :                   :         :           :                
+TRST                         : 56        : input  :                   :         :           :                
+TMS                          : 57        : input  :                   :         :           :                
+Se_line                      : 58        : input  : TTL               :         :           : Y              
+GND*                         : 59        :        :                   :         :           :                
+in[0]                        : 60        : input  : TTL               :         :           : Y              
+in[1]                        : 61        : input  : TTL               :         :           : Y              
+in[2]                        : 62        : input  : TTL               :         :           : Y              
+VCC_INT                      : 63        : power  :                   : 5.0V    :           :                
+in[3]                        : 64        : input  : TTL               :         :           : Y              
+GND*                         : 65        :        :                   :         :           :                
+GND*                         : 66        :        :                   :         :           :                
+GND*                         : 67        :        :                   :         :           :                
+GND_INT                      : 68        : gnd    :                   :         :           :                
+GND*                         : 69        :        :                   :         :           :                
+GND*                         : 70        :        :                   :         :           :                
+GND*                         : 71        :        :                   :         :           :                
+GND*                         : 72        :        :                   :         :           :                
+GND*                         : 73        :        :                   :         :           :                
+TDO                          : 74        : output :                   :         :           :                
+nCEO                         : 75        : output :                   :         :           :                
+CONF_DONE                    : 76        : bidir  :                   :         :           :                
+TCK                          : 77        : input  :                   :         :           :                
+GND*                         : 78        :        :                   :         :           :                
+GND*                         : 79        :        :                   :         :           :                
+GND*                         : 80        :        :                   :         :           :                
+GND*                         : 81        :        :                   :         :           :                
+GND_INT                      : 82        : gnd    :                   :         :           :                
+GND*                         : 83        :        :                   :         :           :                
+GND+                         : 84        :        :                   :         :           :                

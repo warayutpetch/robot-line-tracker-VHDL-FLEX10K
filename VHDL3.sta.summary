@@ -1,0 +1,101 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'Devide:inst5|clk'
+Slack : -10.180
+TNS   : -86.605
+
+Type  : Slow 1200mV 85C Model Setup 'VHDL4:inst9|clk'
+Slack : -3.987
+TNS   : -19.246
+
+Type  : Slow 1200mV 85C Model Setup 'clk_in'
+Slack : -3.278
+TNS   : -63.044
+
+Type  : Slow 1200mV 85C Model Setup 'Devide:inst10|clk'
+Slack : -2.247
+TNS   : -21.677
+
+Type  : Slow 1200mV 85C Model Hold 'clk_in'
+Slack : -0.348
+TNS   : -0.520
+
+Type  : Slow 1200mV 85C Model Hold 'VHDL4:inst9|clk'
+Slack : 0.453
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Devide:inst10|clk'
+Slack : 0.454
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Devide:inst5|clk'
+Slack : 0.466
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'Devide:inst5|clk'
+Slack : -9.211
+TNS   : -78.147
+
+Type  : Slow 1200mV 0C Model Setup 'VHDL4:inst9|clk'
+Slack : -3.617
+TNS   : -17.146
+
+Type  : Slow 1200mV 0C Model Setup 'clk_in'
+Slack : -3.016
+TNS   : -55.541
+
+Type  : Slow 1200mV 0C Model Setup 'Devide:inst10|clk'
+Slack : -2.083
+TNS   : -19.596
+
+Type  : Slow 1200mV 0C Model Hold 'clk_in'
+Slack : -0.313
+TNS   : -0.464
+
+Type  : Slow 1200mV 0C Model Hold 'Devide:inst10|clk'
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'VHDL4:inst9|clk'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Devide:inst5|clk'
+Slack : 0.417
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'Devide:inst5|clk'
+Slack : -3.796
+TNS   : -30.781
+
+Type  : Fast 1200mV 0C Model Setup 'VHDL4:inst9|clk'
+Slack : -1.084
+TNS   : -3.229
+
+Type  : Fast 1200mV 0C Model Setup 'clk_in'
+Slack : -0.816
+TNS   : -8.914
+
+Type  : Fast 1200mV 0C Model Setup 'Devide:inst10|clk'
+Slack : -0.390
+TNS   : -2.450
+
+Type  : Fast 1200mV 0C Model Hold 'clk_in'
+Slack : -0.318
+TNS   : -0.645
+
+Type  : Fast 1200mV 0C Model Hold 'VHDL4:inst9|clk'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Devide:inst10|clk'
+Slack : 0.187
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Devide:inst5|clk'
+Slack : 0.193
+TNS   : 0.000
+
+------------------------------------------------------------

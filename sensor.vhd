@@ -1,0 +1,79 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity sensor is
+
+	port 
+	(  
+		clk_divide : in std_logic;
+		sensor : in std_logic_vector (0 to 3);
+		con : out 	integer range 0 to 99;
+		chk	: 	out std_logic_vector(0 to 3);
+		RS_line : in std_logic;
+		LS_line : in std_logic;
+		 on_off : in std_logic;
+		count : out integer range 0 to 99
+	);
+
+end entity;
+
+architecture rtl of sensor is
+begin
+
+
+	process(sensor,RS_line)
+
+variable ln : integer range 0 to 99 :=0 ;
+variable ou : std_logic_vector (0 to 3);
+			begin
+		
+			if(rising_edge(clk_divide)) then
+			if(on_off = '0')then
+		
+				if(RS_line = '0') then
+				if(ln = 1 or ln = 7)then 
+				case sensor is 
+				
+					when others  =>con <=65; chk <="0001"; --l
+				end case;
+				
+				elsif(ln = 10 or ln = 11 or ln = 12)then
+					case sensor is 
+				
+					when others  =>con <=65; chk <="0001"; --l-->r
+				end case;
+				elsif(ln = 21)then
+					case sensor is 
+				
+					when others  =>con <=10; chk <="0000"; 
+				end case;
+				else
+				 case sensor is 
+					when "0110" =>con <=50; chk<= "0100"; 
+					when "0010" =>con <=50; chk<= "1100";
+					when "0011" =>con <=50; chk<= "1100";
+					when "0001" =>con <=50; chk<= "1100";
+					when "0100" =>con <=50; chk<= "0011";
+					when "1100" =>con <=50; chk<= "0011";
+					when "1000" =>con <=50; chk<= "0011"; 
+					when "1110" =>con <=50; chk<= "0011"; 
+					when "0111" =>con <=50; chk<= "1100"; 
+					when "0000" =>con <=50; chk<= "0100";
+					when "1010" =>con <=50; chk<= "0100"; 
+					when "1111" =>con <=50; chk<= "0100"; 
+					when others  =>con <=50; chk <="0100";
+				end case;
+				end if;
+				elsif(RS_line = '1')then 
+					ln:=ln+1;
+					count <= ln;
+					end if;
+					
+					elsif(on_off = '0')then 
+					ln:=0;
+					count<=ln;
+				end if;
+				end if;
+	end process;
+
+end rtl;

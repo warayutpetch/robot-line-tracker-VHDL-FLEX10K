@@ -1,0 +1,674 @@
+Classic Timing Analyzer report for VHDL3
+Fri May 27 18:44:36 2016
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'clk_in'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                          ;
++------------------------------+-------+---------------+----------------------------------+-----------------------+-------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                  ; To                      ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+-----------------------+-------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 6.000 ns                         ; in[1]                 ; sensor:inst|chk[0]      ; --         ; clk_in   ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 29.800 ns                        ; dutysensor:inst1|clk1 ; output[3]               ; clk_in     ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; 1.900 ns                         ; Se_line               ; sensor:inst|con[3]      ; --         ; clk_in   ; 0            ;
+; Clock Setup: 'clk_in'        ; N/A   ; None          ; 20.24 MHz ( period = 49.400 ns ) ; sensor:inst|count[4]  ; Seg_in:inst6|seg_one[2] ; clk_in     ; clk_in   ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                       ;                         ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+-----------------------+-------------------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EPF10K10LC84-4     ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                   ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                   ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; Off                ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk_in          ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk_in'                                                                                                                                                                                                                                                                                                                                                                           ;
++-----------------------------------------+-----------------------------------------------------+------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                                                                                     ; To                                                                                       ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 20.24 MHz ( period = 49.400 ns )                    ; sensor:inst|count[4]                                                                     ; Seg_in:inst6|seg_one[1]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 46.700 ns               ;
+; N/A                                     ; 20.24 MHz ( period = 49.400 ns )                    ; sensor:inst|count[4]                                                                     ; Seg_in:inst6|seg_one[2]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 46.700 ns               ;
+; N/A                                     ; 20.37 MHz ( period = 49.100 ns )                    ; sensor:inst|count[4]                                                                     ; Seg_in:inst6|seg_one[5]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 46.600 ns               ;
+; N/A                                     ; 20.37 MHz ( period = 49.100 ns )                    ; sensor:inst|count[4]                                                                     ; Seg_in:inst6|seg_one[4]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 46.600 ns               ;
+; N/A                                     ; 20.45 MHz ( period = 48.900 ns )                    ; sensor:inst|count[4]                                                                     ; Seg_in:inst6|seg_one[3]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 46.200 ns               ;
+; N/A                                     ; 20.53 MHz ( period = 48.700 ns )                    ; sensor:inst|con[0]                                                                       ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 45.900 ns               ;
+; N/A                                     ; 21.05 MHz ( period = 47.500 ns )                    ; sensor:inst|count[5]                                                                     ; Seg_in:inst6|seg_one[1]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 44.800 ns               ;
+; N/A                                     ; 21.05 MHz ( period = 47.500 ns )                    ; sensor:inst|count[5]                                                                     ; Seg_in:inst6|seg_one[2]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 44.800 ns               ;
+; N/A                                     ; 21.05 MHz ( period = 47.500 ns )                    ; sensor:inst|count[4]                                                                     ; Seg_in:inst6|seg_one[6]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 44.900 ns               ;
+; N/A                                     ; 21.19 MHz ( period = 47.200 ns )                    ; sensor:inst|count[5]                                                                     ; Seg_in:inst6|seg_one[5]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 44.700 ns               ;
+; N/A                                     ; 21.19 MHz ( period = 47.200 ns )                    ; sensor:inst|count[5]                                                                     ; Seg_in:inst6|seg_one[4]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 44.700 ns               ;
+; N/A                                     ; 21.28 MHz ( period = 47.000 ns )                    ; sensor:inst|count[5]                                                                     ; Seg_in:inst6|seg_one[3]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 44.300 ns               ;
+; N/A                                     ; 21.51 MHz ( period = 46.500 ns )                    ; sensor:inst|con[1]                                                                       ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 43.600 ns               ;
+; N/A                                     ; 21.83 MHz ( period = 45.800 ns )                    ; sensor:inst|con[0]                                                                       ; dutysensor:inst1|clk2                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 43.000 ns               ;
+; N/A                                     ; 21.93 MHz ( period = 45.600 ns )                    ; sensor:inst|count[5]                                                                     ; Seg_in:inst6|seg_one[6]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 43.000 ns               ;
+; N/A                                     ; 22.94 MHz ( period = 43.600 ns )                    ; sensor:inst|con[1]                                                                       ; dutysensor:inst1|clk2                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 40.700 ns               ;
+; N/A                                     ; 22.99 MHz ( period = 43.500 ns )                    ; sensor:inst|count[6]                                                                     ; Seg_in:inst6|seg_one[1]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 40.800 ns               ;
+; N/A                                     ; 22.99 MHz ( period = 43.500 ns )                    ; sensor:inst|count[6]                                                                     ; Seg_in:inst6|seg_one[2]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 40.800 ns               ;
+; N/A                                     ; 23.15 MHz ( period = 43.200 ns )                    ; sensor:inst|count[6]                                                                     ; Seg_in:inst6|seg_one[5]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 40.700 ns               ;
+; N/A                                     ; 23.15 MHz ( period = 43.200 ns )                    ; sensor:inst|count[6]                                                                     ; Seg_in:inst6|seg_one[4]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 40.700 ns               ;
+; N/A                                     ; 23.26 MHz ( period = 43.000 ns )                    ; sensor:inst|count[3]                                                                     ; Seg_in:inst6|seg_one[1]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 40.300 ns               ;
+; N/A                                     ; 23.26 MHz ( period = 43.000 ns )                    ; sensor:inst|count[3]                                                                     ; Seg_in:inst6|seg_one[2]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 40.300 ns               ;
+; N/A                                     ; 23.26 MHz ( period = 43.000 ns )                    ; sensor:inst|count[6]                                                                     ; Seg_in:inst6|seg_one[3]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 40.300 ns               ;
+; N/A                                     ; 23.42 MHz ( period = 42.700 ns )                    ; sensor:inst|count[3]                                                                     ; Seg_in:inst6|seg_one[5]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 40.200 ns               ;
+; N/A                                     ; 23.42 MHz ( period = 42.700 ns )                    ; sensor:inst|count[3]                                                                     ; Seg_in:inst6|seg_one[4]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 40.200 ns               ;
+; N/A                                     ; 23.53 MHz ( period = 42.500 ns )                    ; sensor:inst|count[3]                                                                     ; Seg_in:inst6|seg_one[3]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 39.800 ns               ;
+; N/A                                     ; 24.04 MHz ( period = 41.600 ns )                    ; sensor:inst|count[6]                                                                     ; Seg_in:inst6|seg_one[6]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 39.000 ns               ;
+; N/A                                     ; 24.33 MHz ( period = 41.100 ns )                    ; sensor:inst|count[3]                                                                     ; Seg_in:inst6|seg_one[6]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 38.500 ns               ;
+; N/A                                     ; 24.63 MHz ( period = 40.600 ns )                    ; sensor:inst|con[3]                                                                       ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 37.400 ns               ;
+; N/A                                     ; 26.04 MHz ( period = 38.400 ns )                    ; sensor:inst|count[4]                                                                     ; Seg_in:inst6|seg_ten[0]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 35.400 ns               ;
+; N/A                                     ; 26.25 MHz ( period = 38.100 ns )                    ; sensor:inst|count[5]                                                                     ; Seg_in:inst6|seg_ten[0]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 35.100 ns               ;
+; N/A                                     ; 26.53 MHz ( period = 37.700 ns )                    ; sensor:inst|con[3]                                                                       ; dutysensor:inst1|clk2                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 34.500 ns               ;
+; N/A                                     ; 26.53 MHz ( period = 37.700 ns )                    ; sensor:inst|count[6]                                                                     ; Seg_in:inst6|seg_ten[0]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 34.700 ns               ;
+; N/A                                     ; 26.95 MHz ( period = 37.100 ns )                    ; sensor:inst|con[4]                                                                       ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 34.200 ns               ;
+; N/A                                     ; 29.33 MHz ( period = 34.100 ns )                    ; sensor:inst|con[4]                                                                       ; dutysensor:inst1|clk2                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 31.200 ns               ;
+; N/A                                     ; 30.03 MHz ( period = 33.300 ns )                    ; sensor:inst|count[4]                                                                     ; Seg_in:inst6|seg_ten[1]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 30.100 ns               ;
+; N/A                                     ; 30.30 MHz ( period = 33.000 ns )                    ; sensor:inst|count[5]                                                                     ; Seg_in:inst6|seg_ten[1]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 29.800 ns               ;
+; N/A                                     ; 30.67 MHz ( period = 32.600 ns )                    ; sensor:inst|count[6]                                                                     ; Seg_in:inst6|seg_ten[1]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 29.400 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; sensor:inst|count[3]                                                                     ; Seg_in:inst6|seg_ten[0]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 27.000 ns               ;
+; N/A                                     ; 40.16 MHz ( period = 24.900 ns )                    ; sensor:inst|count[3]                                                                     ; Seg_in:inst6|seg_ten[1]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 21.700 ns               ;
+; N/A                                     ; 41.15 MHz ( period = 24.300 ns )                    ; sensor:inst|count[2]                                                                     ; Seg_in:inst6|seg_one[1]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 21.600 ns               ;
+; N/A                                     ; 41.15 MHz ( period = 24.300 ns )                    ; sensor:inst|count[2]                                                                     ; Seg_in:inst6|seg_one[2]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 21.600 ns               ;
+; N/A                                     ; 41.67 MHz ( period = 24.000 ns )                    ; sensor:inst|con[1]                                                                       ; dutysensor:inst1|clk1                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 21.100 ns               ;
+; N/A                                     ; 41.67 MHz ( period = 24.000 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 20.400 ns               ;
+; N/A                                     ; 41.67 MHz ( period = 24.000 ns )                    ; sensor:inst|count[2]                                                                     ; Seg_in:inst6|seg_one[5]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 21.500 ns               ;
+; N/A                                     ; 41.67 MHz ( period = 24.000 ns )                    ; sensor:inst|count[2]                                                                     ; Seg_in:inst6|seg_one[4]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 21.500 ns               ;
+; N/A                                     ; 42.02 MHz ( period = 23.800 ns )                    ; sensor:inst|count[2]                                                                     ; Seg_in:inst6|seg_one[3]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 21.100 ns               ;
+; N/A                                     ; 44.64 MHz ( period = 22.400 ns )                    ; sensor:inst|count[2]                                                                     ; Seg_in:inst6|seg_one[6]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 19.800 ns               ;
+; N/A                                     ; 44.64 MHz ( period = 22.400 ns )                    ; sensor:inst|count[4]                                                                     ; Seg_in:inst6|seg_ten[2]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 19.400 ns               ;
+; N/A                                     ; 45.05 MHz ( period = 22.200 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 18.600 ns               ;
+; N/A                                     ; 45.25 MHz ( period = 22.100 ns )                    ; sensor:inst|count[5]                                                                     ; Seg_in:inst6|seg_ten[2]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 19.100 ns               ;
+; N/A                                     ; 45.66 MHz ( period = 21.900 ns )                    ; sensor:inst|con[0]                                                                       ; dutysensor:inst1|clk1                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 19.100 ns               ;
+; N/A                                     ; 46.08 MHz ( period = 21.700 ns )                    ; sensor:inst|count[6]                                                                     ; Seg_in:inst6|seg_ten[2]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 18.700 ns               ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|clk2                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 18.000 ns               ;
+; N/A                                     ; 47.62 MHz ( period = 21.000 ns )                    ; dutysensor:inst1|Count1[5]                                                               ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 17.400 ns               ;
+; N/A                                     ; 49.02 MHz ( period = 20.400 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|clk1                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 16.800 ns               ;
+; N/A                                     ; 49.02 MHz ( period = 20.400 ns )                    ; sensor:inst|con[3]                                                                       ; dutysensor:inst1|clk1                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 17.200 ns               ;
+; N/A                                     ; 50.51 MHz ( period = 19.800 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|clk2                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 16.200 ns               ;
+; N/A                                     ; 51.81 MHz ( period = 19.300 ns )                    ; sensor:inst|count[2]                                                                     ; Seg_in:inst6|seg_ten[0]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 16.300 ns               ;
+; N/A                                     ; 53.48 MHz ( period = 18.700 ns )                    ; dutysensor:inst1|Count1[4]                                                               ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 15.100 ns               ;
+; N/A                                     ; 53.76 MHz ( period = 18.600 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|clk1                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 15.000 ns               ;
+; N/A                                     ; 53.76 MHz ( period = 18.600 ns )                    ; dutysensor:inst1|Count1[5]                                                               ; dutysensor:inst1|clk2                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 15.000 ns               ;
+; N/A                                     ; 54.05 MHz ( period = 18.500 ns )                    ; sensor:inst|con[4]                                                                       ; dutysensor:inst1|clk1                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 15.600 ns               ;
+; N/A                                     ; 56.18 MHz ( period = 17.800 ns )                    ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[6] ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 14.200 ns               ;
+; N/A                                     ; 56.82 MHz ( period = 17.600 ns )                    ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[0] ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 14.000 ns               ;
+; N/A                                     ; 57.47 MHz ( period = 17.400 ns )                    ; dutysensor:inst1|Count1[5]                                                               ; dutysensor:inst1|clk1                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 13.800 ns               ;
+; N/A                                     ; 57.80 MHz ( period = 17.300 ns )                    ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[5] ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 13.700 ns               ;
+; N/A                                     ; 59.17 MHz ( period = 16.900 ns )                    ; Devide:inst10|count[1]                                                                   ; Devide:inst10|count[15]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 13.300 ns               ;
+; N/A                                     ; 59.52 MHz ( period = 16.800 ns )                    ; Devide:inst10|count[0]                                                                   ; Devide:inst10|count[0]                                                                   ; clk_in     ; clk_in   ; None                        ; None                      ; 13.200 ns               ;
+; N/A                                     ; 59.88 MHz ( period = 16.700 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[3]          ; sensor:inst|chk[1]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 13.100 ns               ;
+; N/A                                     ; 59.88 MHz ( period = 16.700 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[1]          ; sensor:inst|chk[1]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 13.100 ns               ;
+; N/A                                     ; 59.88 MHz ( period = 16.700 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[0]          ; sensor:inst|chk[1]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 13.100 ns               ;
+; N/A                                     ; 59.88 MHz ( period = 16.700 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[3]          ; sensor:inst|chk[2]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 13.100 ns               ;
+; N/A                                     ; 59.88 MHz ( period = 16.700 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[1]          ; sensor:inst|chk[2]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 13.100 ns               ;
+; N/A                                     ; 59.88 MHz ( period = 16.700 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[0]          ; sensor:inst|chk[2]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 13.100 ns               ;
+; N/A                                     ; 59.88 MHz ( period = 16.700 ns )                    ; dutysensor:inst1|Count1[6]                                                               ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 13.100 ns               ;
+; N/A                                     ; 59.88 MHz ( period = 16.700 ns )                    ; dutysensor:inst1|Count1[2]                                                               ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 13.100 ns               ;
+; N/A                                     ; 59.88 MHz ( period = 16.700 ns )                    ; dutysensor:inst1|Count1[3]                                                               ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 13.100 ns               ;
+; N/A                                     ; 59.88 MHz ( period = 16.700 ns )                    ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[1] ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 13.100 ns               ;
+; N/A                                     ; 60.24 MHz ( period = 16.600 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[3]          ; sensor:inst|chk[3]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 13.000 ns               ;
+; N/A                                     ; 60.24 MHz ( period = 16.600 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[1]          ; sensor:inst|chk[3]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 13.000 ns               ;
+; N/A                                     ; 60.24 MHz ( period = 16.600 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[0]          ; sensor:inst|chk[3]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 13.000 ns               ;
+; N/A                                     ; 60.24 MHz ( period = 16.600 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[3]          ; sensor:inst|chk[0]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 13.000 ns               ;
+; N/A                                     ; 60.24 MHz ( period = 16.600 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[1]          ; sensor:inst|chk[0]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 13.000 ns               ;
+; N/A                                     ; 60.24 MHz ( period = 16.600 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[0]          ; sensor:inst|chk[0]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 13.000 ns               ;
+; N/A                                     ; 60.24 MHz ( period = 16.600 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[3]          ; sensor:inst|con[4]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 13.000 ns               ;
+; N/A                                     ; 60.24 MHz ( period = 16.600 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[1]          ; sensor:inst|con[4]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 13.000 ns               ;
+; N/A                                     ; 60.24 MHz ( period = 16.600 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[0]          ; sensor:inst|con[4]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 13.000 ns               ;
+; N/A                                     ; 60.24 MHz ( period = 16.600 ns )                    ; Devide:inst10|count[2]                                                                   ; Devide:inst10|count[15]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 13.000 ns               ;
+; N/A                                     ; 60.61 MHz ( period = 16.500 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[6] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.900 ns               ;
+; N/A                                     ; 60.61 MHz ( period = 16.500 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[5] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.900 ns               ;
+; N/A                                     ; 60.61 MHz ( period = 16.500 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[4] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.900 ns               ;
+; N/A                                     ; 60.61 MHz ( period = 16.500 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[3] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.900 ns               ;
+; N/A                                     ; 60.61 MHz ( period = 16.500 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[2] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.900 ns               ;
+; N/A                                     ; 60.61 MHz ( period = 16.500 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[1] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.900 ns               ;
+; N/A                                     ; 60.61 MHz ( period = 16.500 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[0] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.900 ns               ;
+; N/A                                     ; 60.98 MHz ( period = 16.400 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[6] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.800 ns               ;
+; N/A                                     ; 60.98 MHz ( period = 16.400 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[5] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.800 ns               ;
+; N/A                                     ; 60.98 MHz ( period = 16.400 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[4] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.800 ns               ;
+; N/A                                     ; 60.98 MHz ( period = 16.400 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[3] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.800 ns               ;
+; N/A                                     ; 60.98 MHz ( period = 16.400 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[2] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.800 ns               ;
+; N/A                                     ; 60.98 MHz ( period = 16.400 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[1] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.800 ns               ;
+; N/A                                     ; 60.98 MHz ( period = 16.400 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[0] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.800 ns               ;
+; N/A                                     ; 60.98 MHz ( period = 16.400 ns )                    ; Devide:inst10|count[0]                                                                   ; Devide:inst10|count[15]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 12.800 ns               ;
+; N/A                                     ; 60.98 MHz ( period = 16.400 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[1] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.800 ns               ;
+; N/A                                     ; 60.98 MHz ( period = 16.400 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[0] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.800 ns               ;
+; N/A                                     ; 60.98 MHz ( period = 16.400 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[6] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.800 ns               ;
+; N/A                                     ; 60.98 MHz ( period = 16.400 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[4] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.800 ns               ;
+; N/A                                     ; 60.98 MHz ( period = 16.400 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[3] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.800 ns               ;
+; N/A                                     ; 60.98 MHz ( period = 16.400 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[2] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.800 ns               ;
+; N/A                                     ; 60.98 MHz ( period = 16.400 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[5] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.800 ns               ;
+; N/A                                     ; 61.35 MHz ( period = 16.300 ns )                    ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[4] ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 12.700 ns               ;
+; N/A                                     ; 61.35 MHz ( period = 16.300 ns )                    ; dutysensor:inst1|Count1[4]                                                               ; dutysensor:inst1|clk2                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 12.700 ns               ;
+; N/A                                     ; 61.35 MHz ( period = 16.300 ns )                    ; Devide:inst10|count[0]                                                                   ; Devide:inst10|count[9]                                                                   ; clk_in     ; clk_in   ; None                        ; None                      ; 12.700 ns               ;
+; N/A                                     ; 61.35 MHz ( period = 16.300 ns )                    ; Devide:inst10|count[1]                                                                   ; Devide:inst10|count[13]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 12.700 ns               ;
+; N/A                                     ; 61.35 MHz ( period = 16.300 ns )                    ; Devide:inst10|count[0]                                                                   ; Devide:inst10|count[13]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 12.700 ns               ;
+; N/A                                     ; 61.35 MHz ( period = 16.300 ns )                    ; Devide:inst10|count[3]                                                                   ; Devide:inst10|count[15]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 12.700 ns               ;
+; N/A                                     ; 61.35 MHz ( period = 16.300 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[1] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.700 ns               ;
+; N/A                                     ; 61.35 MHz ( period = 16.300 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[0] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.700 ns               ;
+; N/A                                     ; 61.35 MHz ( period = 16.300 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[6] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.700 ns               ;
+; N/A                                     ; 61.35 MHz ( period = 16.300 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[4] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.700 ns               ;
+; N/A                                     ; 61.35 MHz ( period = 16.300 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[3] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.700 ns               ;
+; N/A                                     ; 61.35 MHz ( period = 16.300 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[2] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.700 ns               ;
+; N/A                                     ; 61.35 MHz ( period = 16.300 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[5] ; clk_in     ; clk_in   ; None                        ; None                      ; 12.700 ns               ;
+; N/A                                     ; 61.73 MHz ( period = 16.200 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[2]          ; sensor:inst|chk[1]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 12.600 ns               ;
+; N/A                                     ; 61.73 MHz ( period = 16.200 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[2]          ; sensor:inst|chk[2]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 12.600 ns               ;
+; N/A                                     ; 61.73 MHz ( period = 16.200 ns )                    ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[2] ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 12.600 ns               ;
+; N/A                                     ; 61.73 MHz ( period = 16.200 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[3]          ; sensor:inst|con[0]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 12.500 ns               ;
+; N/A                                     ; 61.73 MHz ( period = 16.200 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[1]          ; sensor:inst|con[0]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 12.500 ns               ;
+; N/A                                     ; 61.73 MHz ( period = 16.200 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[0]          ; sensor:inst|con[0]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 12.500 ns               ;
+; N/A                                     ; 61.73 MHz ( period = 16.200 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[3]          ; sensor:inst|con[1]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 12.600 ns               ;
+; N/A                                     ; 61.73 MHz ( period = 16.200 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[1]          ; sensor:inst|con[1]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 12.600 ns               ;
+; N/A                                     ; 61.73 MHz ( period = 16.200 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[0]          ; sensor:inst|con[1]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 12.600 ns               ;
+; N/A                                     ; 62.11 MHz ( period = 16.100 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[2]          ; sensor:inst|chk[3]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 12.500 ns               ;
+; N/A                                     ; 62.11 MHz ( period = 16.100 ns )                    ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[0] ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 12.500 ns               ;
+; N/A                                     ; 62.11 MHz ( period = 16.100 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[2]          ; sensor:inst|chk[0]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 12.500 ns               ;
+; N/A                                     ; 62.11 MHz ( period = 16.100 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[2]          ; sensor:inst|con[4]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 12.500 ns               ;
+; N/A                                     ; 62.11 MHz ( period = 16.100 ns )                    ; Devide:inst10|count[1]                                                                   ; Devide:inst10|count[14]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 12.500 ns               ;
+; N/A                                     ; 62.50 MHz ( period = 16.000 ns )                    ; Devide:inst10|count[2]                                                                   ; Devide:inst10|count[13]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 12.400 ns               ;
+; N/A                                     ; 62.50 MHz ( period = 16.000 ns )                    ; Devide:inst10|count[4]                                                                   ; Devide:inst10|count[15]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 12.400 ns               ;
+; N/A                                     ; 62.89 MHz ( period = 15.900 ns )                    ; dutysensor:inst1|Count1[1]                                                               ; dutysensor:inst1|Count1[5]                                                               ; clk_in     ; clk_in   ; None                        ; None                      ; 12.300 ns               ;
+; N/A                                     ; 62.89 MHz ( period = 15.900 ns )                    ; Devide:inst10|count[5]                                                                   ; Devide:inst10|count[15]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 12.300 ns               ;
+; N/A                                     ; 63.29 MHz ( period = 15.800 ns )                    ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[3] ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 12.200 ns               ;
+; N/A                                     ; 63.29 MHz ( period = 15.800 ns )                    ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[1] ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 12.200 ns               ;
+; N/A                                     ; 63.29 MHz ( period = 15.800 ns )                    ; dutysensor:inst1|Count1[0]                                                               ; dutysensor:inst1|Count1[5]                                                               ; clk_in     ; clk_in   ; None                        ; None                      ; 12.200 ns               ;
+; N/A                                     ; 63.29 MHz ( period = 15.800 ns )                    ; Devide:inst10|count[2]                                                                   ; Devide:inst10|count[14]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 12.200 ns               ;
+; N/A                                     ; 63.69 MHz ( period = 15.700 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[2]          ; sensor:inst|con[0]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 12.000 ns               ;
+; N/A                                     ; 63.69 MHz ( period = 15.700 ns )                    ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[2]          ; sensor:inst|con[1]                                                                       ; clk_in     ; clk_in   ; None                        ; None                      ; 12.100 ns               ;
+; N/A                                     ; 63.69 MHz ( period = 15.700 ns )                    ; Devide:inst10|count[3]                                                                   ; Devide:inst10|count[13]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 12.100 ns               ;
+; N/A                                     ; 63.69 MHz ( period = 15.700 ns )                    ; Devide:inst5|count[1]                                                                    ; Devide:inst5|count[11]                                                                   ; clk_in     ; clk_in   ; None                        ; None                      ; 12.100 ns               ;
+; N/A                                     ; 64.52 MHz ( period = 15.500 ns )                    ; Devide:inst10|count[1]                                                                   ; Devide:inst10|count[12]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.900 ns               ;
+; N/A                                     ; 64.52 MHz ( period = 15.500 ns )                    ; Devide:inst10|count[3]                                                                   ; Devide:inst10|count[14]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.900 ns               ;
+; N/A                                     ; 64.94 MHz ( period = 15.400 ns )                    ; Devide:inst10|count[4]                                                                   ; Devide:inst10|count[13]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.800 ns               ;
+; N/A                                     ; 64.94 MHz ( period = 15.400 ns )                    ; Devide:inst10|count[6]                                                                   ; Devide:inst10|count[15]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.800 ns               ;
+; N/A                                     ; 64.94 MHz ( period = 15.400 ns )                    ; Devide:inst5|count[2]                                                                    ; Devide:inst5|count[11]                                                                   ; clk_in     ; clk_in   ; None                        ; None                      ; 11.800 ns               ;
+; N/A                                     ; 65.36 MHz ( period = 15.300 ns )                    ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[6] ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 11.700 ns               ;
+; N/A                                     ; 65.36 MHz ( period = 15.300 ns )                    ; Devide:inst10|count[9]                                                                   ; Devide:inst10|count[0]                                                                   ; clk_in     ; clk_in   ; None                        ; None                      ; 11.700 ns               ;
+; N/A                                     ; 65.36 MHz ( period = 15.300 ns )                    ; Devide:inst10|count[8]                                                                   ; Devide:inst10|count[0]                                                                   ; clk_in     ; clk_in   ; None                        ; None                      ; 11.700 ns               ;
+; N/A                                     ; 65.36 MHz ( period = 15.300 ns )                    ; Devide:inst10|count[10]                                                                  ; Devide:inst10|count[0]                                                                   ; clk_in     ; clk_in   ; None                        ; None                      ; 11.700 ns               ;
+; N/A                                     ; 65.36 MHz ( period = 15.300 ns )                    ; Devide:inst10|count[5]                                                                   ; Devide:inst10|count[13]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.700 ns               ;
+; N/A                                     ; 65.79 MHz ( period = 15.200 ns )                    ; Devide:inst10|count[1]                                                                   ; Devide:inst10|count[0]                                                                   ; clk_in     ; clk_in   ; None                        ; None                      ; 11.600 ns               ;
+; N/A                                     ; 65.79 MHz ( period = 15.200 ns )                    ; Devide:inst10|count[6]                                                                   ; Devide:inst10|count[0]                                                                   ; clk_in     ; clk_in   ; None                        ; None                      ; 11.600 ns               ;
+; N/A                                     ; 65.79 MHz ( period = 15.200 ns )                    ; Devide:inst10|count[1]                                                                   ; Devide:inst10|count[11]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.600 ns               ;
+; N/A                                     ; 65.79 MHz ( period = 15.200 ns )                    ; Devide:inst10|count[2]                                                                   ; Devide:inst10|count[12]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.600 ns               ;
+; N/A                                     ; 65.79 MHz ( period = 15.200 ns )                    ; Devide:inst10|count[4]                                                                   ; Devide:inst10|count[14]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.600 ns               ;
+; N/A                                     ; 66.23 MHz ( period = 15.100 ns )                    ; dutysensor:inst1|Count1[4]                                                               ; dutysensor:inst1|clk1                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 11.500 ns               ;
+; N/A                                     ; 66.23 MHz ( period = 15.100 ns )                    ; Devide:inst10|count[1]                                                                   ; Devide:inst10|count[9]                                                                   ; clk_in     ; clk_in   ; None                        ; None                      ; 11.500 ns               ;
+; N/A                                     ; 66.23 MHz ( period = 15.100 ns )                    ; Devide:inst10|count[7]                                                                   ; Devide:inst10|count[15]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.500 ns               ;
+; N/A                                     ; 66.23 MHz ( period = 15.100 ns )                    ; Devide:inst10|count[5]                                                                   ; Devide:inst10|count[14]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.500 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[4] ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[5] ; dutysensor:inst1|clk3                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; dutysensor:inst1|Count1[2]                                                               ; dutysensor:inst1|clk2                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[6] ; dutysensor:inst1|clk2                                                                    ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; dutysensor:inst1|Count1[5]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[6] ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; dutysensor:inst1|Count1[5]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[5] ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; dutysensor:inst1|Count1[5]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[4] ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; dutysensor:inst1|Count1[5]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[3] ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; dutysensor:inst1|Count1[5]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[2] ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; dutysensor:inst1|Count1[5]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[1] ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; dutysensor:inst1|Count1[5]                                                               ; dutysensor:inst1|lpm_counter:Count2_rtl_0|alt_counter_f10ke:wysi_counter|counter_cell[0] ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; Devide:inst10|count[5]                                                                   ; Devide:inst10|count[0]                                                                   ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; Devide:inst10|count[12]                                                                  ; Devide:inst10|count[0]                                                                   ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; Devide:inst10|count[1]                                                                   ; Devide:inst10|count[10]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; Devide:inst10|count[2]                                                                   ; Devide:inst10|count[11]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; Devide:inst10|count[9]                                                                   ; Devide:inst10|count[15]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; Devide:inst10|count[8]                                                                   ; Devide:inst10|count[15]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; Devide:inst10|count[10]                                                                  ; Devide:inst10|count[15]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.11 MHz ( period = 14.900 ns )                    ; Devide:inst10|count[3]                                                                   ; Devide:inst10|count[12]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.300 ns               ;
+; N/A                                     ; 67.57 MHz ( period = 14.800 ns )                    ; Devide:inst10|count[6]                                                                   ; Devide:inst10|count[13]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.200 ns               ;
+; N/A                                     ; 67.57 MHz ( period = 14.800 ns )                    ; Devide:inst10|count[9]                                                                   ; Devide:inst10|count[13]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.200 ns               ;
+; N/A                                     ; 67.57 MHz ( period = 14.800 ns )                    ; Devide:inst10|count[8]                                                                   ; Devide:inst10|count[13]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.200 ns               ;
+; N/A                                     ; 67.57 MHz ( period = 14.800 ns )                    ; Devide:inst10|count[10]                                                                  ; Devide:inst10|count[13]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.200 ns               ;
+; N/A                                     ; 67.57 MHz ( period = 14.800 ns )                    ; Devide:inst10|count[0]                                                                   ; Devide:inst10|count[14]                                                                  ; clk_in     ; clk_in   ; None                        ; None                      ; 11.200 ns               ;
+; N/A                                     ; 67.57 MHz ( period = 14.800 ns )                    ; dutysensor:inst1|Count1[5]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[1] ; clk_in     ; clk_in   ; None                        ; None                      ; 11.200 ns               ;
+; N/A                                     ; 67.57 MHz ( period = 14.800 ns )                    ; dutysensor:inst1|Count1[5]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[0] ; clk_in     ; clk_in   ; None                        ; None                      ; 11.200 ns               ;
+; N/A                                     ; 67.57 MHz ( period = 14.800 ns )                    ; dutysensor:inst1|Count1[5]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[6] ; clk_in     ; clk_in   ; None                        ; None                      ; 11.200 ns               ;
+; N/A                                     ; 67.57 MHz ( period = 14.800 ns )                    ; dutysensor:inst1|Count1[5]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[4] ; clk_in     ; clk_in   ; None                        ; None                      ; 11.200 ns               ;
+; N/A                                     ; 67.57 MHz ( period = 14.800 ns )                    ; dutysensor:inst1|Count1[5]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[3] ; clk_in     ; clk_in   ; None                        ; None                      ; 11.200 ns               ;
+; N/A                                     ; 67.57 MHz ( period = 14.800 ns )                    ; dutysensor:inst1|Count1[5]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[2] ; clk_in     ; clk_in   ; None                        ; None                      ; 11.200 ns               ;
+; N/A                                     ; 67.57 MHz ( period = 14.800 ns )                    ; dutysensor:inst1|Count1[5]                                                               ; dutysensor:inst1|lpm_counter:Count3_rtl_1|alt_counter_f10ke:wysi_counter|counter_cell[5] ; clk_in     ; clk_in   ; None                        ; None                      ; 11.200 ns               ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                                                                                          ;                                                                                          ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                                                      ;
++-------+--------------+------------+---------+---------------------------------------------------------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From    ; To                                                                              ; To Clock ;
++-------+--------------+------------+---------+---------------------------------------------------------------------------------+----------+
+; N/A   ; None         ; 6.000 ns   ; in[1]   ; sensor:inst|chk[3]                                                              ; clk_in   ;
+; N/A   ; None         ; 6.000 ns   ; in[1]   ; sensor:inst|chk[0]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.900 ns   ; ON_OF   ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[4] ; clk_in   ;
+; N/A   ; None         ; 5.900 ns   ; ON_OF   ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[6] ; clk_in   ;
+; N/A   ; None         ; 5.900 ns   ; ON_OF   ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[5] ; clk_in   ;
+; N/A   ; None         ; 5.900 ns   ; ON_OF   ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[3] ; clk_in   ;
+; N/A   ; None         ; 5.900 ns   ; ON_OF   ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[2] ; clk_in   ;
+; N/A   ; None         ; 5.900 ns   ; ON_OF   ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[1] ; clk_in   ;
+; N/A   ; None         ; 5.900 ns   ; ON_OF   ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[0] ; clk_in   ;
+; N/A   ; None         ; 5.900 ns   ; in[2]   ; sensor:inst|chk[3]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.900 ns   ; in[2]   ; sensor:inst|chk[0]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.800 ns   ; ON_OF   ; sensor:inst|count[1]                                                            ; clk_in   ;
+; N/A   ; None         ; 5.800 ns   ; ON_OF   ; sensor:inst|con[0]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.800 ns   ; ON_OF   ; sensor:inst|count[2]                                                            ; clk_in   ;
+; N/A   ; None         ; 5.800 ns   ; ON_OF   ; sensor:inst|count[6]                                                            ; clk_in   ;
+; N/A   ; None         ; 5.800 ns   ; ON_OF   ; sensor:inst|count[5]                                                            ; clk_in   ;
+; N/A   ; None         ; 5.800 ns   ; ON_OF   ; sensor:inst|count[3]                                                            ; clk_in   ;
+; N/A   ; None         ; 5.800 ns   ; ON_OF   ; sensor:inst|count[4]                                                            ; clk_in   ;
+; N/A   ; None         ; 5.700 ns   ; Se_line ; sensor:inst|con[0]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.600 ns   ; ON_OF   ; sensor:inst|chk[1]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.600 ns   ; ON_OF   ; sensor:inst|chk[3]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.600 ns   ; ON_OF   ; sensor:inst|chk[2]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.600 ns   ; ON_OF   ; sensor:inst|chk[0]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.600 ns   ; ON_OF   ; sensor:inst|con[4]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.600 ns   ; ON_OF   ; sensor:inst|con[1]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.500 ns   ; Se_line ; sensor:inst|chk[1]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.500 ns   ; Se_line ; sensor:inst|chk[3]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.500 ns   ; Se_line ; sensor:inst|chk[2]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.500 ns   ; Se_line ; sensor:inst|chk[0]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.500 ns   ; Se_line ; sensor:inst|con[4]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.500 ns   ; Se_line ; sensor:inst|con[1]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.500 ns   ; in[0]   ; sensor:inst|chk[3]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.500 ns   ; in[0]   ; sensor:inst|chk[0]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.500 ns   ; in[1]   ; sensor:inst|chk[1]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.500 ns   ; in[1]   ; sensor:inst|chk[2]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.400 ns   ; ON_OF   ; sensor:inst|count[0]                                                            ; clk_in   ;
+; N/A   ; None         ; 5.400 ns   ; in[2]   ; sensor:inst|chk[1]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.400 ns   ; in[2]   ; sensor:inst|chk[2]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.000 ns   ; in[0]   ; sensor:inst|chk[1]                                                              ; clk_in   ;
+; N/A   ; None         ; 5.000 ns   ; in[0]   ; sensor:inst|chk[2]                                                              ; clk_in   ;
+; N/A   ; None         ; 4.900 ns   ; Se_line ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[4] ; clk_in   ;
+; N/A   ; None         ; 4.900 ns   ; Se_line ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[6] ; clk_in   ;
+; N/A   ; None         ; 4.900 ns   ; Se_line ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[5] ; clk_in   ;
+; N/A   ; None         ; 4.900 ns   ; Se_line ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[3] ; clk_in   ;
+; N/A   ; None         ; 4.900 ns   ; Se_line ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[2] ; clk_in   ;
+; N/A   ; None         ; 4.900 ns   ; Se_line ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[1] ; clk_in   ;
+; N/A   ; None         ; 4.900 ns   ; Se_line ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[0] ; clk_in   ;
+; N/A   ; None         ; 4.800 ns   ; Se_line ; sensor:inst|count[1]                                                            ; clk_in   ;
+; N/A   ; None         ; 4.800 ns   ; Se_line ; sensor:inst|count[2]                                                            ; clk_in   ;
+; N/A   ; None         ; 4.800 ns   ; Se_line ; sensor:inst|count[6]                                                            ; clk_in   ;
+; N/A   ; None         ; 4.800 ns   ; Se_line ; sensor:inst|count[5]                                                            ; clk_in   ;
+; N/A   ; None         ; 4.800 ns   ; Se_line ; sensor:inst|count[3]                                                            ; clk_in   ;
+; N/A   ; None         ; 4.800 ns   ; Se_line ; sensor:inst|count[4]                                                            ; clk_in   ;
+; N/A   ; None         ; 4.400 ns   ; Se_line ; sensor:inst|count[0]                                                            ; clk_in   ;
+; N/A   ; None         ; 2.900 ns   ; in[3]   ; sensor:inst|chk[3]                                                              ; clk_in   ;
+; N/A   ; None         ; 2.900 ns   ; in[3]   ; sensor:inst|chk[0]                                                              ; clk_in   ;
+; N/A   ; None         ; 2.400 ns   ; in[3]   ; sensor:inst|chk[1]                                                              ; clk_in   ;
+; N/A   ; None         ; 2.400 ns   ; in[3]   ; sensor:inst|chk[2]                                                              ; clk_in   ;
+; N/A   ; None         ; 2.300 ns   ; ON_OF   ; sensor:inst|con[3]                                                              ; clk_in   ;
+; N/A   ; None         ; 2.200 ns   ; Se_line ; sensor:inst|con[3]                                                              ; clk_in   ;
++-------+--------------+------------+---------+---------------------------------------------------------------------------------+----------+
+
+
++------------------------------------------------------------------------------------------+
+; tco                                                                                      ;
++-------+--------------+------------+-------------------------+---------------+------------+
+; Slack ; Required tco ; Actual tco ; From                    ; To            ; From Clock ;
++-------+--------------+------------+-------------------------+---------------+------------+
+; N/A   ; None         ; 29.800 ns  ; dutysensor:inst1|clk1   ; output[3]     ; clk_in     ;
+; N/A   ; None         ; 29.700 ns  ; sensor:inst|chk[3]      ; output[3]     ; clk_in     ;
+; N/A   ; None         ; 29.700 ns  ; sensor:inst|chk[2]      ; output[3]     ; clk_in     ;
+; N/A   ; None         ; 29.300 ns  ; sensor:inst|chk[1]      ; output[3]     ; clk_in     ;
+; N/A   ; None         ; 28.700 ns  ; Seg_in:inst6|seg_one[6] ; Seg[0]        ; clk_in     ;
+; N/A   ; None         ; 28.600 ns  ; Seg_in:inst6|seg_one[6] ; Seg[4]        ; clk_in     ;
+; N/A   ; None         ; 28.600 ns  ; Seg_in:inst6|seg_one[6] ; Seg[3]        ; clk_in     ;
+; N/A   ; None         ; 28.600 ns  ; Seg_in:inst6|seg_one[6] ; Seg[2]        ; clk_in     ;
+; N/A   ; None         ; 28.600 ns  ; Seg_in:inst6|seg_one[6] ; Seg[1]        ; clk_in     ;
+; N/A   ; None         ; 28.600 ns  ; Seg_in:inst6|seg_one[0] ; Seg[0]        ; clk_in     ;
+; N/A   ; None         ; 28.500 ns  ; Seg_in:inst6|seg_one[0] ; Seg[5]        ; clk_in     ;
+; N/A   ; None         ; 28.500 ns  ; Seg_in:inst6|seg_one[6] ; Seg[5]        ; clk_in     ;
+; N/A   ; None         ; 28.500 ns  ; common:inst8|Con[3]     ; Seg[0]        ; clk_in     ;
+; N/A   ; None         ; 28.400 ns  ; common:inst8|Con[3]     ; Seg[4]        ; clk_in     ;
+; N/A   ; None         ; 28.400 ns  ; common:inst8|Con[3]     ; Seg[3]        ; clk_in     ;
+; N/A   ; None         ; 28.400 ns  ; common:inst8|Con[3]     ; Seg[2]        ; clk_in     ;
+; N/A   ; None         ; 28.400 ns  ; common:inst8|Con[3]     ; Seg[1]        ; clk_in     ;
+; N/A   ; None         ; 28.400 ns  ; dutysensor:inst1|clk2   ; output[0]     ; clk_in     ;
+; N/A   ; None         ; 28.400 ns  ; dutysensor:inst1|clk3   ; output[1]     ; clk_in     ;
+; N/A   ; None         ; 28.400 ns  ; dutysensor:inst1|clk3   ; output[2]     ; clk_in     ;
+; N/A   ; None         ; 28.300 ns  ; common:inst8|Con[3]     ; Seg[5]        ; clk_in     ;
+; N/A   ; None         ; 28.200 ns  ; Seg_in:inst6|seg_one[0] ; Seg[2]        ; clk_in     ;
+; N/A   ; None         ; 28.200 ns  ; Seg_in:inst6|seg_one[0] ; Seg[1]        ; clk_in     ;
+; N/A   ; None         ; 27.900 ns  ; Seg_in:inst6|seg_one[6] ; Seg[6]        ; clk_in     ;
+; N/A   ; None         ; 27.900 ns  ; Seg_in:inst6|seg_one[1] ; Seg[0]        ; clk_in     ;
+; N/A   ; None         ; 27.900 ns  ; Seg_in:inst6|seg_one[2] ; Seg[0]        ; clk_in     ;
+; N/A   ; None         ; 27.900 ns  ; dutysensor:inst1|clk3   ; output[0]     ; clk_in     ;
+; N/A   ; None         ; 27.900 ns  ; dutysensor:inst1|clk3   ; output[3]     ; clk_in     ;
+; N/A   ; None         ; 27.800 ns  ; Seg_in:inst6|seg_one[1] ; Seg[5]        ; clk_in     ;
+; N/A   ; None         ; 27.800 ns  ; Seg_in:inst6|seg_one[2] ; Seg[5]        ; clk_in     ;
+; N/A   ; None         ; 27.500 ns  ; Seg_in:inst6|seg_one[1] ; Seg[2]        ; clk_in     ;
+; N/A   ; None         ; 27.500 ns  ; Seg_in:inst6|seg_one[2] ; Seg[2]        ; clk_in     ;
+; N/A   ; None         ; 27.500 ns  ; Seg_in:inst6|seg_one[1] ; Seg[1]        ; clk_in     ;
+; N/A   ; None         ; 27.500 ns  ; Seg_in:inst6|seg_one[2] ; Seg[1]        ; clk_in     ;
+; N/A   ; None         ; 27.400 ns  ; Seg_in:inst6|seg_one[3] ; Seg[0]        ; clk_in     ;
+; N/A   ; None         ; 27.400 ns  ; dutysensor:inst1|clk1   ; output[1]     ; clk_in     ;
+; N/A   ; None         ; 27.400 ns  ; dutysensor:inst1|clk1   ; output[2]     ; clk_in     ;
+; N/A   ; None         ; 27.300 ns  ; Seg_in:inst6|seg_one[3] ; Seg[5]        ; clk_in     ;
+; N/A   ; None         ; 27.100 ns  ; Seg_in:inst6|seg_ten[0] ; Seg[6]        ; clk_in     ;
+; N/A   ; None         ; 27.100 ns  ; Seg_in:inst6|seg_ten[2] ; Seg[6]        ; clk_in     ;
+; N/A   ; None         ; 27.100 ns  ; Seg_in:inst6|seg_ten[2] ; Seg[5]        ; clk_in     ;
+; N/A   ; None         ; 27.100 ns  ; Seg_in:inst6|seg_ten[2] ; Seg[4]        ; clk_in     ;
+; N/A   ; None         ; 27.000 ns  ; Seg_in:inst6|seg_ten[0] ; Seg[5]        ; clk_in     ;
+; N/A   ; None         ; 27.000 ns  ; Seg_in:inst6|seg_ten[0] ; Seg[4]        ; clk_in     ;
+; N/A   ; None         ; 27.000 ns  ; Seg_in:inst6|seg_ten[2] ; Seg[3]        ; clk_in     ;
+; N/A   ; None         ; 27.000 ns  ; Seg_in:inst6|seg_one[3] ; Seg[2]        ; clk_in     ;
+; N/A   ; None         ; 27.000 ns  ; Seg_in:inst6|seg_one[3] ; Seg[1]        ; clk_in     ;
+; N/A   ; None         ; 26.900 ns  ; Seg_in:inst6|seg_ten[0] ; Seg[3]        ; clk_in     ;
+; N/A   ; None         ; 26.900 ns  ; Seg_in:inst6|seg_one[5] ; Seg[0]        ; clk_in     ;
+; N/A   ; None         ; 26.800 ns  ; Seg_in:inst6|seg_one[5] ; Seg[4]        ; clk_in     ;
+; N/A   ; None         ; 26.800 ns  ; Seg_in:inst6|seg_one[5] ; Seg[3]        ; clk_in     ;
+; N/A   ; None         ; 26.800 ns  ; Seg_in:inst6|seg_one[5] ; Seg[2]        ; clk_in     ;
+; N/A   ; None         ; 26.800 ns  ; Seg_in:inst6|seg_one[5] ; Seg[1]        ; clk_in     ;
+; N/A   ; None         ; 26.800 ns  ; sensor:inst|chk[0]      ; output[0]     ; clk_in     ;
+; N/A   ; None         ; 26.800 ns  ; sensor:inst|chk[2]      ; output[1]     ; clk_in     ;
+; N/A   ; None         ; 26.800 ns  ; sensor:inst|chk[2]      ; output[2]     ; clk_in     ;
+; N/A   ; None         ; 26.700 ns  ; Seg_in:inst6|seg_one[5] ; Seg[5]        ; clk_in     ;
+; N/A   ; None         ; 26.600 ns  ; Seg_in:inst6|seg_ten[3] ; Seg[6]        ; clk_in     ;
+; N/A   ; None         ; 26.600 ns  ; Seg_in:inst6|seg_ten[1] ; Seg[5]        ; clk_in     ;
+; N/A   ; None         ; 26.600 ns  ; Seg_in:inst6|seg_one[0] ; Seg[4]        ; clk_in     ;
+; N/A   ; None         ; 26.600 ns  ; Seg_in:inst6|seg_ten[1] ; Seg[4]        ; clk_in     ;
+; N/A   ; None         ; 26.600 ns  ; Seg_in:inst6|seg_one[0] ; Seg[3]        ; clk_in     ;
+; N/A   ; None         ; 26.500 ns  ; Seg_in:inst6|seg_ten[3] ; Seg[5]        ; clk_in     ;
+; N/A   ; None         ; 26.500 ns  ; Seg_in:inst6|seg_ten[3] ; Seg[4]        ; clk_in     ;
+; N/A   ; None         ; 26.500 ns  ; Seg_in:inst6|seg_ten[1] ; Seg[3]        ; clk_in     ;
+; N/A   ; None         ; 26.400 ns  ; Seg_in:inst6|seg_one[0] ; Seg[6]        ; clk_in     ;
+; N/A   ; None         ; 26.400 ns  ; Seg_in:inst6|seg_ten[3] ; Seg[3]        ; clk_in     ;
+; N/A   ; None         ; 26.400 ns  ; Seg_in:inst6|seg_one[4] ; Seg[0]        ; clk_in     ;
+; N/A   ; None         ; 26.400 ns  ; sensor:inst|chk[1]      ; output[0]     ; clk_in     ;
+; N/A   ; None         ; 26.300 ns  ; Seg_in:inst6|seg_one[4] ; Seg[4]        ; clk_in     ;
+; N/A   ; None         ; 26.300 ns  ; Seg_in:inst6|seg_one[4] ; Seg[3]        ; clk_in     ;
+; N/A   ; None         ; 26.300 ns  ; Seg_in:inst6|seg_one[4] ; Seg[2]        ; clk_in     ;
+; N/A   ; None         ; 26.300 ns  ; Seg_in:inst6|seg_one[4] ; Seg[1]        ; clk_in     ;
+; N/A   ; None         ; 26.200 ns  ; Seg_in:inst6|seg_one[4] ; Seg[5]        ; clk_in     ;
+; N/A   ; None         ; 26.100 ns  ; Seg_in:inst6|seg_one[5] ; Seg[6]        ; clk_in     ;
+; N/A   ; None         ; 25.900 ns  ; Seg_in:inst6|seg_one[1] ; Seg[4]        ; clk_in     ;
+; N/A   ; None         ; 25.900 ns  ; Seg_in:inst6|seg_one[2] ; Seg[4]        ; clk_in     ;
+; N/A   ; None         ; 25.900 ns  ; Seg_in:inst6|seg_one[1] ; Seg[3]        ; clk_in     ;
+; N/A   ; None         ; 25.900 ns  ; Seg_in:inst6|seg_one[2] ; Seg[3]        ; clk_in     ;
+; N/A   ; None         ; 25.900 ns  ; sensor:inst|chk[1]      ; output[1]     ; clk_in     ;
+; N/A   ; None         ; 25.900 ns  ; sensor:inst|chk[1]      ; output[2]     ; clk_in     ;
+; N/A   ; None         ; 25.600 ns  ; Seg_in:inst6|seg_one[4] ; Seg[6]        ; clk_in     ;
+; N/A   ; None         ; 25.500 ns  ; Seg_in:inst6|seg_ten[0] ; Seg[2]        ; clk_in     ;
+; N/A   ; None         ; 25.400 ns  ; Seg_in:inst6|seg_one[3] ; Seg[4]        ; clk_in     ;
+; N/A   ; None         ; 25.400 ns  ; Seg_in:inst6|seg_one[3] ; Seg[3]        ; clk_in     ;
+; N/A   ; None         ; 25.100 ns  ; Seg_in:inst6|seg_ten[1] ; Seg[2]        ; clk_in     ;
+; N/A   ; None         ; 25.100 ns  ; Seg_in:inst6|seg_ten[2] ; Seg[2]        ; clk_in     ;
+; N/A   ; None         ; 25.100 ns  ; Seg_in:inst6|seg_ten[2] ; Seg[1]        ; clk_in     ;
+; N/A   ; None         ; 25.000 ns  ; Seg_in:inst6|seg_ten[1] ; Seg[6]        ; clk_in     ;
+; N/A   ; None         ; 25.000 ns  ; Seg_in:inst6|seg_ten[0] ; Seg[1]        ; clk_in     ;
+; N/A   ; None         ; 25.000 ns  ; Seg_in:inst6|seg_ten[2] ; Seg[0]        ; clk_in     ;
+; N/A   ; None         ; 24.900 ns  ; Seg_in:inst6|seg_ten[0] ; Seg[0]        ; clk_in     ;
+; N/A   ; None         ; 24.600 ns  ; Seg_in:inst6|seg_ten[1] ; Seg[1]        ; clk_in     ;
+; N/A   ; None         ; 24.600 ns  ; Seg_in:inst6|seg_ten[1] ; Seg[0]        ; clk_in     ;
+; N/A   ; None         ; 24.500 ns  ; Seg_in:inst6|seg_ten[3] ; Seg[1]        ; clk_in     ;
+; N/A   ; None         ; 24.500 ns  ; Seg_in:inst6|seg_ten[3] ; Seg[0]        ; clk_in     ;
+; N/A   ; None         ; 23.900 ns  ; Seg_in:inst6|seg_one[1] ; Seg[6]        ; clk_in     ;
+; N/A   ; None         ; 23.900 ns  ; Seg_in:inst6|seg_one[2] ; Seg[6]        ; clk_in     ;
+; N/A   ; None         ; 23.900 ns  ; sensor:inst|chk[3]      ; output[0]     ; clk_in     ;
+; N/A   ; None         ; 23.900 ns  ; sensor:inst|chk[0]      ; output[1]     ; clk_in     ;
+; N/A   ; None         ; 23.900 ns  ; sensor:inst|chk[3]      ; output[2]     ; clk_in     ;
+; N/A   ; None         ; 23.400 ns  ; Seg_in:inst6|seg_one[3] ; Seg[6]        ; clk_in     ;
+; N/A   ; None         ; 23.400 ns  ; sensor:inst|chk[2]      ; output[0]     ; clk_in     ;
+; N/A   ; None         ; 23.400 ns  ; sensor:inst|chk[3]      ; output[1]     ; clk_in     ;
+; N/A   ; None         ; 23.400 ns  ; sensor:inst|chk[0]      ; output[2]     ; clk_in     ;
+; N/A   ; None         ; 23.400 ns  ; sensor:inst|chk[0]      ; output[3]     ; clk_in     ;
+; N/A   ; None         ; 22.900 ns  ; common:inst8|Con[3]     ; Seg[6]        ; clk_in     ;
+; N/A   ; None         ; 22.100 ns  ; Seg_in:inst6|seg_ten[3] ; Seg[2]        ; clk_in     ;
+; N/A   ; None         ; 18.300 ns  ; common:inst8|Con[3]~1   ; common_out[1] ; clk_in     ;
+; N/A   ; None         ; 18.200 ns  ; common:inst8|Con[3]     ; common_out[0] ; clk_in     ;
++-------+--------------+------------+-------------------------+---------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                                             ;
++---------------+-------------+-----------+---------+---------------------------------------------------------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From    ; To                                                                              ; To Clock ;
++---------------+-------------+-----------+---------+---------------------------------------------------------------------------------+----------+
+; N/A           ; None        ; 1.900 ns  ; Se_line ; sensor:inst|con[3]                                                              ; clk_in   ;
+; N/A           ; None        ; 1.800 ns  ; ON_OF   ; sensor:inst|con[3]                                                              ; clk_in   ;
+; N/A           ; None        ; 1.700 ns  ; in[3]   ; sensor:inst|chk[1]                                                              ; clk_in   ;
+; N/A           ; None        ; 1.700 ns  ; in[3]   ; sensor:inst|chk[2]                                                              ; clk_in   ;
+; N/A           ; None        ; 1.200 ns  ; in[3]   ; sensor:inst|chk[3]                                                              ; clk_in   ;
+; N/A           ; None        ; 1.200 ns  ; in[3]   ; sensor:inst|chk[0]                                                              ; clk_in   ;
+; N/A           ; None        ; -0.300 ns ; Se_line ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[4] ; clk_in   ;
+; N/A           ; None        ; -0.300 ns ; Se_line ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[6] ; clk_in   ;
+; N/A           ; None        ; -0.300 ns ; Se_line ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[5] ; clk_in   ;
+; N/A           ; None        ; -0.300 ns ; Se_line ; sensor:inst|count[0]                                                            ; clk_in   ;
+; N/A           ; None        ; -0.300 ns ; Se_line ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[3] ; clk_in   ;
+; N/A           ; None        ; -0.300 ns ; Se_line ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[2] ; clk_in   ;
+; N/A           ; None        ; -0.300 ns ; Se_line ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[1] ; clk_in   ;
+; N/A           ; None        ; -0.300 ns ; Se_line ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[0] ; clk_in   ;
+; N/A           ; None        ; -0.700 ns ; Se_line ; sensor:inst|count[1]                                                            ; clk_in   ;
+; N/A           ; None        ; -0.700 ns ; Se_line ; sensor:inst|count[2]                                                            ; clk_in   ;
+; N/A           ; None        ; -0.700 ns ; Se_line ; sensor:inst|count[6]                                                            ; clk_in   ;
+; N/A           ; None        ; -0.700 ns ; Se_line ; sensor:inst|count[5]                                                            ; clk_in   ;
+; N/A           ; None        ; -0.700 ns ; Se_line ; sensor:inst|count[3]                                                            ; clk_in   ;
+; N/A           ; None        ; -0.700 ns ; Se_line ; sensor:inst|count[4]                                                            ; clk_in   ;
+; N/A           ; None        ; -0.900 ns ; in[0]   ; sensor:inst|chk[1]                                                              ; clk_in   ;
+; N/A           ; None        ; -0.900 ns ; in[0]   ; sensor:inst|chk[2]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.300 ns ; ON_OF   ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[4] ; clk_in   ;
+; N/A           ; None        ; -1.300 ns ; ON_OF   ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[6] ; clk_in   ;
+; N/A           ; None        ; -1.300 ns ; ON_OF   ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[5] ; clk_in   ;
+; N/A           ; None        ; -1.300 ns ; ON_OF   ; sensor:inst|count[0]                                                            ; clk_in   ;
+; N/A           ; None        ; -1.300 ns ; ON_OF   ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[3] ; clk_in   ;
+; N/A           ; None        ; -1.300 ns ; ON_OF   ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[2] ; clk_in   ;
+; N/A           ; None        ; -1.300 ns ; ON_OF   ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[1] ; clk_in   ;
+; N/A           ; None        ; -1.300 ns ; ON_OF   ; sensor:inst|lpm_counter:ln_rtl_2|alt_counter_f10ke:wysi_counter|counter_cell[0] ; clk_in   ;
+; N/A           ; None        ; -1.300 ns ; in[2]   ; sensor:inst|chk[1]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.300 ns ; in[2]   ; sensor:inst|chk[2]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.400 ns ; Se_line ; sensor:inst|chk[1]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.400 ns ; Se_line ; sensor:inst|chk[3]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.400 ns ; Se_line ; sensor:inst|chk[2]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.400 ns ; Se_line ; sensor:inst|chk[0]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.400 ns ; Se_line ; sensor:inst|con[4]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.400 ns ; Se_line ; sensor:inst|con[1]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.400 ns ; in[0]   ; sensor:inst|chk[3]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.400 ns ; in[0]   ; sensor:inst|chk[0]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.400 ns ; in[1]   ; sensor:inst|chk[1]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.400 ns ; in[1]   ; sensor:inst|chk[2]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.500 ns ; ON_OF   ; sensor:inst|chk[1]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.500 ns ; ON_OF   ; sensor:inst|chk[3]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.500 ns ; ON_OF   ; sensor:inst|chk[2]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.500 ns ; ON_OF   ; sensor:inst|chk[0]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.500 ns ; ON_OF   ; sensor:inst|con[4]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.500 ns ; ON_OF   ; sensor:inst|con[1]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.600 ns ; Se_line ; sensor:inst|con[0]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.700 ns ; ON_OF   ; sensor:inst|count[1]                                                            ; clk_in   ;
+; N/A           ; None        ; -1.700 ns ; ON_OF   ; sensor:inst|con[0]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.700 ns ; ON_OF   ; sensor:inst|count[2]                                                            ; clk_in   ;
+; N/A           ; None        ; -1.700 ns ; ON_OF   ; sensor:inst|count[6]                                                            ; clk_in   ;
+; N/A           ; None        ; -1.700 ns ; ON_OF   ; sensor:inst|count[5]                                                            ; clk_in   ;
+; N/A           ; None        ; -1.700 ns ; ON_OF   ; sensor:inst|count[3]                                                            ; clk_in   ;
+; N/A           ; None        ; -1.700 ns ; ON_OF   ; sensor:inst|count[4]                                                            ; clk_in   ;
+; N/A           ; None        ; -1.800 ns ; in[2]   ; sensor:inst|chk[3]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.800 ns ; in[2]   ; sensor:inst|chk[0]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.900 ns ; in[1]   ; sensor:inst|chk[3]                                                              ; clk_in   ;
+; N/A           ; None        ; -1.900 ns ; in[1]   ; sensor:inst|chk[0]                                                              ; clk_in   ;
++---------------+-------------+-----------+---------+---------------------------------------------------------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+    Info: Processing started: Fri May 27 18:44:35 2016
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off VHDL3 -c VHDL3
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk_in" is an undefined clock
+Warning: Found 3 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "VHDL4:inst9|clk" as buffer
+    Info: Detected ripple clock "Devide:inst10|clk" as buffer
+    Info: Detected ripple clock "Devide:inst5|clk" as buffer
+Info: Clock "clk_in" has Internal fmax of 20.24 MHz between source register "sensor:inst|count[4]" and destination register "Seg_in:inst6|seg_one[1]" (period= 49.4 ns)
+    Info: + Longest register to register delay is 46.700 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC2_C7; Fanout = 8; REG Node = 'sensor:inst|count[4]'
+        Info: 2: + IC(2.200 ns) + CELL(1.800 ns) = 4.000 ns; Loc. = LC2_C6; Fanout = 2; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|add_sub_d9c:add_sub_3|add_sub_cella[1]~22'
+        Info: 3: + IC(0.600 ns) + CELL(1.800 ns) = 6.400 ns; Loc. = LC7_C6; Fanout = 2; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|add_sub_d9c:add_sub_3|add_sub_cella[2]~20'
+        Info: 4: + IC(0.600 ns) + CELL(1.800 ns) = 8.800 ns; Loc. = LC8_C6; Fanout = 9; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|add_sub_d9c:add_sub_3|add_sub_cella[3]~14'
+        Info: 5: + IC(2.300 ns) + CELL(2.300 ns) = 13.400 ns; Loc. = LC1_C4; Fanout = 2; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|add_sub_e9c:add_sub_4|add_sub_cella[2]~38'
+        Info: 6: + IC(2.200 ns) + CELL(1.800 ns) = 17.400 ns; Loc. = LC1_C2; Fanout = 2; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|add_sub_e9c:add_sub_4|add_sub_cella[3]~30'
+        Info: 7: + IC(2.200 ns) + CELL(1.800 ns) = 21.400 ns; Loc. = LC2_C3; Fanout = 12; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|add_sub_e9c:add_sub_4|add_sub_cella[4]~18'
+        Info: 8: + IC(2.500 ns) + CELL(2.300 ns) = 26.200 ns; Loc. = LC7_C4; Fanout = 2; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|StageOut[30]~126'
+        Info: 9: + IC(2.200 ns) + CELL(1.200 ns) = 29.600 ns; Loc. = LC3_C5; Fanout = 2; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|add_sub_f9c:add_sub_5|add_sub_cella[3]~COUT'
+        Info: 10: + IC(0.000 ns) + CELL(0.300 ns) = 29.900 ns; Loc. = LC4_C5; Fanout = 2; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|add_sub_f9c:add_sub_5|add_sub_cella[4]~COUT'
+        Info: 11: + IC(0.000 ns) + CELL(0.300 ns) = 30.200 ns; Loc. = LC5_C5; Fanout = 1; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|add_sub_f9c:add_sub_5|add_sub_cella[5]~COUT'
+        Info: 12: + IC(0.000 ns) + CELL(1.300 ns) = 31.500 ns; Loc. = LC6_C5; Fanout = 10; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|add_sub_f9c:add_sub_5|add_sub_cella[5]~50'
+        Info: 13: + IC(2.900 ns) + CELL(2.300 ns) = 36.700 ns; Loc. = LC1_C11; Fanout = 3; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|StageOut[36]~102'
+        Info: 14: + IC(2.200 ns) + CELL(1.200 ns) = 40.100 ns; Loc. = LC3_C10; Fanout = 2; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|add_sub_g9c:add_sub_6|add_sub_cella[2]~COUT'
+        Info: 15: + IC(0.000 ns) + CELL(0.300 ns) = 40.400 ns; Loc. = LC4_C10; Fanout = 2; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|add_sub_g9c:add_sub_6|add_sub_cella[3]~COUT'
+        Info: 16: + IC(0.000 ns) + CELL(0.300 ns) = 40.700 ns; Loc. = LC5_C10; Fanout = 2; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|add_sub_g9c:add_sub_6|add_sub_cella[4]~COUT'
+        Info: 17: + IC(0.000 ns) + CELL(0.300 ns) = 41.000 ns; Loc. = LC6_C10; Fanout = 2; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|add_sub_g9c:add_sub_6|add_sub_cella[5]~COUT'
+        Info: 18: + IC(0.000 ns) + CELL(0.300 ns) = 41.300 ns; Loc. = LC7_C10; Fanout = 1; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|add_sub_g9c:add_sub_6|add_sub_cella[6]~COUT'
+        Info: 19: + IC(0.000 ns) + CELL(1.300 ns) = 42.600 ns; Loc. = LC8_C10; Fanout = 6; COMB Node = 'Seg_in:inst6|lpm_divide:Mod0|lpm_divide_npl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_kke:divider|add_sub_g9c:add_sub_6|add_sub_cella[6]~60'
+        Info: 20: + IC(2.400 ns) + CELL(1.700 ns) = 46.700 ns; Loc. = LC6_C11; Fanout = 7; REG Node = 'Seg_in:inst6|seg_one[1]'
+        Info: Total cell delay = 24.400 ns ( 52.25 % )
+        Info: Total interconnect delay = 22.300 ns ( 47.75 % )
+    Info: - Smallest clock skew is 0.900 ns
+        Info: + Shortest clock path from clock "clk_in" to destination register is 11.000 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_43; Fanout = 33; CLK Node = 'clk_in'
+            Info: 2: + IC(2.500 ns) + CELL(1.100 ns) = 6.400 ns; Loc. = LC5_B14; Fanout = 15; REG Node = 'Devide:inst5|clk'
+            Info: 3: + IC(4.600 ns) + CELL(0.000 ns) = 11.000 ns; Loc. = LC6_C11; Fanout = 7; REG Node = 'Seg_in:inst6|seg_one[1]'
+            Info: Total cell delay = 3.900 ns ( 35.45 % )
+            Info: Total interconnect delay = 7.100 ns ( 64.55 % )
+        Info: - Longest clock path from clock "clk_in" to source register is 10.100 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_43; Fanout = 33; CLK Node = 'clk_in'
+            Info: 2: + IC(2.500 ns) + CELL(1.100 ns) = 6.400 ns; Loc. = LC6_A6; Fanout = 23; REG Node = 'Devide:inst10|clk'
+            Info: 3: + IC(3.700 ns) + CELL(0.000 ns) = 10.100 ns; Loc. = LC2_C7; Fanout = 8; REG Node = 'sensor:inst|count[4]'
+            Info: Total cell delay = 3.900 ns ( 38.61 % )
+            Info: Total interconnect delay = 6.200 ns ( 61.39 % )
+    Info: + Micro clock to output delay of source is 1.100 ns
+    Info: + Micro setup delay of destination is 2.500 ns
+Info: tsu for register "sensor:inst|chk[3]" (data pin = "in[1]", clock pin = "clk_in") is 6.000 ns
+    Info: + Longest pin to register delay is 13.800 ns
+        Info: 1: + IC(0.000 ns) + CELL(3.500 ns) = 3.500 ns; Loc. = PIN_61; Fanout = 2; PIN Node = 'in[1]'
+        Info: 2: + IC(5.700 ns) + CELL(2.300 ns) = 11.500 ns; Loc. = LC7_B19; Fanout = 3; COMB Node = 'sensor:inst|Mux1~0'
+        Info: 3: + IC(0.600 ns) + CELL(1.700 ns) = 13.800 ns; Loc. = LC5_B19; Fanout = 5; REG Node = 'sensor:inst|chk[3]'
+        Info: Total cell delay = 7.500 ns ( 54.35 % )
+        Info: Total interconnect delay = 6.300 ns ( 45.65 % )
+    Info: + Micro setup delay of destination is 2.500 ns
+    Info: - Shortest clock path from clock "clk_in" to destination register is 10.300 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_43; Fanout = 33; CLK Node = 'clk_in'
+        Info: 2: + IC(2.500 ns) + CELL(1.100 ns) = 6.400 ns; Loc. = LC6_A6; Fanout = 23; REG Node = 'Devide:inst10|clk'
+        Info: 3: + IC(3.900 ns) + CELL(0.000 ns) = 10.300 ns; Loc. = LC5_B19; Fanout = 5; REG Node = 'sensor:inst|chk[3]'
+        Info: Total cell delay = 3.900 ns ( 37.86 % )
+        Info: Total interconnect delay = 6.400 ns ( 62.14 % )
+Info: tco from clock "clk_in" to destination pin "output[3]" through register "dutysensor:inst1|clk1" is 29.800 ns
+    Info: + Longest clock path from clock "clk_in" to source register is 11.000 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_43; Fanout = 33; CLK Node = 'clk_in'
+        Info: 2: + IC(2.500 ns) + CELL(1.100 ns) = 6.400 ns; Loc. = LC1_A12; Fanout = 25; REG Node = 'VHDL4:inst9|clk'
+        Info: 3: + IC(4.600 ns) + CELL(0.000 ns) = 11.000 ns; Loc. = LC1_B22; Fanout = 3; REG Node = 'dutysensor:inst1|clk1'
+        Info: Total cell delay = 3.900 ns ( 35.45 % )
+        Info: Total interconnect delay = 7.100 ns ( 64.55 % )
+    Info: + Micro clock to output delay of source is 1.100 ns
+    Info: + Longest register to pin delay is 17.700 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC1_B22; Fanout = 3; REG Node = 'dutysensor:inst1|clk1'
+        Info: 2: + IC(2.500 ns) + CELL(1.800 ns) = 4.300 ns; Loc. = LC3_B23; Fanout = 1; COMB Node = 'Motor:inst4|Mux4~0'
+        Info: 3: + IC(0.600 ns) + CELL(2.300 ns) = 7.200 ns; Loc. = LC5_B23; Fanout = 1; COMB Node = 'Motor:inst4|Mux4~1'
+        Info: 4: + IC(0.600 ns) + CELL(2.300 ns) = 10.100 ns; Loc. = LC1_B23; Fanout = 1; COMB Node = 'Motor:inst4|Mux4~2'
+        Info: 5: + IC(2.500 ns) + CELL(5.100 ns) = 17.700 ns; Loc. = PIN_21; Fanout = 0; PIN Node = 'output[3]'
+        Info: Total cell delay = 11.500 ns ( 64.97 % )
+        Info: Total interconnect delay = 6.200 ns ( 35.03 % )
+Info: th for register "sensor:inst|con[3]" (data pin = "Se_line", clock pin = "clk_in") is 1.900 ns
+    Info: + Longest clock path from clock "clk_in" to destination register is 10.600 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_43; Fanout = 33; CLK Node = 'clk_in'
+        Info: 2: + IC(2.500 ns) + CELL(1.100 ns) = 6.400 ns; Loc. = LC6_A6; Fanout = 23; REG Node = 'Devide:inst10|clk'
+        Info: 3: + IC(4.200 ns) + CELL(0.000 ns) = 10.600 ns; Loc. = LC2_C22; Fanout = 7; REG Node = 'sensor:inst|con[3]'
+        Info: Total cell delay = 3.900 ns ( 36.79 % )
+        Info: Total interconnect delay = 6.700 ns ( 63.21 % )
+    Info: + Micro hold delay of destination is 1.600 ns
+    Info: - Shortest pin to register delay is 10.300 ns
+        Info: 1: + IC(0.000 ns) + CELL(3.500 ns) = 3.500 ns; Loc. = PIN_58; Fanout = 2; PIN Node = 'Se_line'
+        Info: 2: + IC(2.700 ns) + CELL(2.300 ns) = 8.500 ns; Loc. = LC7_C22; Fanout = 8; COMB Node = 'sensor:inst|chk[0]~34'
+        Info: 3: + IC(0.600 ns) + CELL(1.200 ns) = 10.300 ns; Loc. = LC2_C22; Fanout = 7; REG Node = 'sensor:inst|con[3]'
+        Info: Total cell delay = 7.000 ns ( 67.96 % )
+        Info: Total interconnect delay = 3.300 ns ( 32.04 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 167 megabytes
+    Info: Processing ended: Fri May 27 18:44:36 2016
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+

@@ -1,0 +1,1285 @@
+TimeQuest Timing Analyzer report for VHDL3
+Fri May 27 05:06:51 2016
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Slow 1200mV 85C Model Setup Summary
+  7. Slow 1200mV 85C Model Hold Summary
+  8. Slow 1200mV 85C Model Recovery Summary
+  9. Slow 1200mV 85C Model Removal Summary
+ 10. Slow 1200mV 85C Model Minimum Pulse Width
+ 11. Setup Times
+ 12. Hold Times
+ 13. Clock to Output Times
+ 14. Minimum Clock to Output Times
+ 15. Slow 1200mV 0C Model Fmax Summary
+ 16. Slow 1200mV 0C Model Setup Summary
+ 17. Slow 1200mV 0C Model Hold Summary
+ 18. Slow 1200mV 0C Model Recovery Summary
+ 19. Slow 1200mV 0C Model Removal Summary
+ 20. Slow 1200mV 0C Model Minimum Pulse Width
+ 21. Setup Times
+ 22. Hold Times
+ 23. Clock to Output Times
+ 24. Minimum Clock to Output Times
+ 25. Fast 1200mV 0C Model Setup Summary
+ 26. Fast 1200mV 0C Model Hold Summary
+ 27. Fast 1200mV 0C Model Recovery Summary
+ 28. Fast 1200mV 0C Model Removal Summary
+ 29. Fast 1200mV 0C Model Minimum Pulse Width
+ 30. Setup Times
+ 31. Hold Times
+ 32. Clock to Output Times
+ 33. Minimum Clock to Output Times
+ 34. Multicorner Timing Analysis Summary
+ 35. Setup Times
+ 36. Hold Times
+ 37. Clock to Output Times
+ 38. Minimum Clock to Output Times
+ 39. Board Trace Model Assignments
+ 40. Input Transition Times
+ 41. Slow Corner Signal Integrity Metrics
+ 42. Fast Corner Signal Integrity Metrics
+ 43. Setup Transfers
+ 44. Hold Transfers
+ 45. Report TCCS
+ 46. Report RSKM
+ 47. Unconstrained Paths
+ 48. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                   ;
++--------------------+----------------------------------------------------------------+
+; Quartus II Version ; Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition ;
+; Revision Name      ; VHDL3                                                          ;
+; Device Family      ; Cyclone III                                                    ;
+; Device Name        ; EP3C10E144C8                                                   ;
+; Timing Models      ; Final                                                          ;
+; Delay Model        ; Combined                                                       ;
+; Rise/Fall Delays   ; Enabled                                                        ;
++--------------------+----------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                               ;
++-------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------+
+; Clock Name        ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets               ;
++-------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------+
+; clk_in            ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk_in }            ;
+; Devide:inst5|clk  ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Devide:inst5|clk }  ;
+; Devide:inst10|clk ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Devide:inst10|clk } ;
+; VHDL4:inst9|clk   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { VHDL4:inst9|clk }   ;
++-------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                 ;
++-------------+-----------------+-------------------+------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name        ; Note                                           ;
++-------------+-----------------+-------------------+------------------------------------------------+
+; 233.75 MHz  ; 233.75 MHz      ; clk_in            ;                                                ;
+; 307.98 MHz  ; 307.98 MHz      ; Devide:inst10|clk ;                                                ;
+; 322.89 MHz  ; 322.89 MHz      ; VHDL4:inst9|clk   ;                                                ;
+; 1011.12 MHz ; 350.02 MHz      ; Devide:inst5|clk  ; limit due to minimum period restriction (tmin) ;
++-------------+-----------------+-------------------+------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++---------------------------------------------+
+; Slow 1200mV 85C Model Setup Summary         ;
++-------------------+---------+---------------+
+; Clock             ; Slack   ; End Point TNS ;
++-------------------+---------+---------------+
+; Devide:inst5|clk  ; -10.180 ; -86.605       ;
+; VHDL4:inst9|clk   ; -3.987  ; -19.246       ;
+; clk_in            ; -3.278  ; -63.044       ;
+; Devide:inst10|clk ; -2.247  ; -21.677       ;
++-------------------+---------+---------------+
+
+
++--------------------------------------------+
+; Slow 1200mV 85C Model Hold Summary         ;
++-------------------+--------+---------------+
+; Clock             ; Slack  ; End Point TNS ;
++-------------------+--------+---------------+
+; clk_in            ; -0.348 ; -0.520        ;
+; VHDL4:inst9|clk   ; 0.453  ; 0.000         ;
+; Devide:inst10|clk ; 0.454  ; 0.000         ;
+; Devide:inst5|clk  ; 0.466  ; 0.000         ;
++-------------------+--------+---------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width                                                                                       ;
++--------+--------------+----------------+-------+------------------+-------------------+------------+----------------------------+
+; Slack  ; Actual Width ; Required Width ; CCPP  ; Type             ; Clock             ; Clock Edge ; Target                     ;
++--------+--------------+----------------+-------+------------------+-------------------+------------+----------------------------+
+; -3.000 ; 1.000        ; 4.000          ; 0.000 ; Port Rate        ; clk_in            ; Rise       ; clk_in                     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|clk          ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[0]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[10]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[11]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[12]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[13]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[14]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[15]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[16]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[1]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[2]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[3]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[4]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[5]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[6]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[7]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[8]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[9]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|clk           ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[0]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[10]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[11]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[1]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[2]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[3]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[4]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[5]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[6]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[7]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[8]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[9]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[0]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[1]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[2]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[3]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[4]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[5]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[6]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[0]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[1]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[2]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[3]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; VHDL4:inst9|clk            ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; VHDL4:inst9|count[0]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; VHDL4:inst9|count[1]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; common:inst8|Con[3]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; common:inst8|count1[0]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[0] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[1] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[2] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[3] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[4] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[5] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[6] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|clk1      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|clk2      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|clk3      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[0]         ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[1]         ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[2]         ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[3]         ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|con[1]         ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|con[2]         ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|con[4]         ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|count[0]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|count[1]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|count[2]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|count[3]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|count[4]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|count[5]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|count[6]       ;
+; 0.214  ; 0.306        ; 0.220          ; 0.128 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[0]    ;
+; 0.214  ; 0.305        ; 0.220          ; 0.129 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[0]    ;
+; 0.214  ; 0.305        ; 0.220          ; 0.129 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[1]    ;
+; 0.214  ; 0.305        ; 0.220          ; 0.129 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[2]    ;
+; 0.214  ; 0.305        ; 0.220          ; 0.129 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[3]    ;
+; 0.214  ; 0.306        ; 0.220          ; 0.128 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; common:inst8|Con[3]        ;
+; 0.214  ; 0.306        ; 0.220          ; 0.128 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; common:inst8|count1[0]     ;
+; 0.215  ; 0.306        ; 0.220          ; 0.129 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[1]    ;
+; 0.215  ; 0.306        ; 0.220          ; 0.129 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[2]    ;
+; 0.215  ; 0.306        ; 0.220          ; 0.129 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[3]    ;
+; 0.215  ; 0.306        ; 0.220          ; 0.129 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[4]    ;
+; 0.215  ; 0.306        ; 0.220          ; 0.129 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[5]    ;
+; 0.215  ; 0.306        ; 0.220          ; 0.129 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[6]    ;
+; 0.233  ; 0.320        ; 0.220          ; 0.133 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|count[0]       ;
+; 0.234  ; 0.321        ; 0.220          ; 0.133 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[0]         ;
+; 0.234  ; 0.321        ; 0.220          ; 0.133 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[1]         ;
+; 0.234  ; 0.321        ; 0.220          ; 0.133 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[2]         ;
+; 0.234  ; 0.321        ; 0.220          ; 0.133 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[3]         ;
+; 0.234  ; 0.321        ; 0.220          ; 0.133 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|con[1]         ;
+; 0.234  ; 0.320        ; 0.220          ; 0.134 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|con[2]         ;
+; 0.234  ; 0.321        ; 0.220          ; 0.133 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|con[4]         ;
+; 0.234  ; 0.321        ; 0.220          ; 0.133 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|count[1]       ;
+; 0.234  ; 0.321        ; 0.220          ; 0.133 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|count[2]       ;
+; 0.234  ; 0.321        ; 0.220          ; 0.133 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|count[3]       ;
+; 0.234  ; 0.321        ; 0.220          ; 0.133 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|count[4]       ;
+; 0.234  ; 0.321        ; 0.220          ; 0.133 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|count[5]       ;
+; 0.234  ; 0.321        ; 0.220          ; 0.133 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|count[6]       ;
+; 0.283  ; 0.384        ; 0.220          ; 0.119 ; High Pulse Width ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[5] ;
++--------+--------------+----------------+-------+------------------+-------------------+------------+----------------------------+
+
+
++--------------------------------------------------------------------------------+
+; Setup Times                                                                    ;
++-----------+-------------------+-------+-------+------------+-------------------+
+; Data Port ; Clock Port        ; Rise  ; Fall  ; Clock Edge ; Clock Reference   ;
++-----------+-------------------+-------+-------+------------+-------------------+
+; ON_OF     ; Devide:inst10|clk ; 3.777 ; 4.183 ; Rise       ; Devide:inst10|clk ;
+; Se_line   ; Devide:inst10|clk ; 4.401 ; 4.466 ; Rise       ; Devide:inst10|clk ;
+; in[*]     ; Devide:inst10|clk ; 4.399 ; 4.634 ; Rise       ; Devide:inst10|clk ;
+;  in[0]    ; Devide:inst10|clk ; 3.628 ; 4.044 ; Rise       ; Devide:inst10|clk ;
+;  in[1]    ; Devide:inst10|clk ; 4.399 ; 4.634 ; Rise       ; Devide:inst10|clk ;
+;  in[2]    ; Devide:inst10|clk ; 4.337 ; 4.454 ; Rise       ; Devide:inst10|clk ;
+;  in[3]    ; Devide:inst10|clk ; 3.577 ; 3.852 ; Rise       ; Devide:inst10|clk ;
++-----------+-------------------+-------+-------+------------+-------------------+
+
+
++----------------------------------------------------------------------------------+
+; Hold Times                                                                       ;
++-----------+-------------------+--------+--------+------------+-------------------+
+; Data Port ; Clock Port        ; Rise   ; Fall   ; Clock Edge ; Clock Reference   ;
++-----------+-------------------+--------+--------+------------+-------------------+
+; ON_OF     ; Devide:inst10|clk ; -1.603 ; -1.792 ; Rise       ; Devide:inst10|clk ;
+; Se_line   ; Devide:inst10|clk ; -2.169 ; -2.398 ; Rise       ; Devide:inst10|clk ;
+; in[*]     ; Devide:inst10|clk ; -2.726 ; -2.898 ; Rise       ; Devide:inst10|clk ;
+;  in[0]    ; Devide:inst10|clk ; -2.813 ; -3.192 ; Rise       ; Devide:inst10|clk ;
+;  in[1]    ; Devide:inst10|clk ; -3.396 ; -3.670 ; Rise       ; Devide:inst10|clk ;
+;  in[2]    ; Devide:inst10|clk ; -3.403 ; -3.529 ; Rise       ; Devide:inst10|clk ;
+;  in[3]    ; Devide:inst10|clk ; -2.726 ; -2.898 ; Rise       ; Devide:inst10|clk ;
++-----------+-------------------+--------+--------+------------+-------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                 ;
++----------------+-------------------+--------+--------+------------+-------------------+
+; Data Port      ; Clock Port        ; Rise   ; Fall   ; Clock Edge ; Clock Reference   ;
++----------------+-------------------+--------+--------+------------+-------------------+
+; output[*]      ; Devide:inst10|clk ; 10.311 ; 10.217 ; Rise       ; Devide:inst10|clk ;
+;  output[0]     ; Devide:inst10|clk ; 10.311 ; 10.217 ; Rise       ; Devide:inst10|clk ;
+;  output[1]     ; Devide:inst10|clk ; 8.668  ; 8.495  ; Rise       ; Devide:inst10|clk ;
+;  output[2]     ; Devide:inst10|clk ; 7.929  ; 7.778  ; Rise       ; Devide:inst10|clk ;
+;  output[3]     ; Devide:inst10|clk ; 8.271  ; 8.080  ; Rise       ; Devide:inst10|clk ;
+; Seg[*]         ; Devide:inst5|clk  ; 10.087 ; 9.896  ; Rise       ; Devide:inst5|clk  ;
+;  Seg[0]        ; Devide:inst5|clk  ; 9.863  ; 9.670  ; Rise       ; Devide:inst5|clk  ;
+;  Seg[1]        ; Devide:inst5|clk  ; 9.950  ; 9.709  ; Rise       ; Devide:inst5|clk  ;
+;  Seg[2]        ; Devide:inst5|clk  ; 9.878  ; 9.675  ; Rise       ; Devide:inst5|clk  ;
+;  Seg[3]        ; Devide:inst5|clk  ; 10.087 ; 9.896  ; Rise       ; Devide:inst5|clk  ;
+;  Seg[4]        ; Devide:inst5|clk  ; 9.275  ; 9.133  ; Rise       ; Devide:inst5|clk  ;
+;  Seg[5]        ; Devide:inst5|clk  ; 9.646  ; 9.521  ; Rise       ; Devide:inst5|clk  ;
+;  Seg[6]        ; Devide:inst5|clk  ; 9.674  ; 9.495  ; Rise       ; Devide:inst5|clk  ;
+; common_out[*]  ; Devide:inst5|clk  ; 7.216  ; 7.050  ; Rise       ; Devide:inst5|clk  ;
+;  common_out[0] ; Devide:inst5|clk  ; 7.216  ; 7.050  ; Rise       ; Devide:inst5|clk  ;
+;  common_out[1] ; Devide:inst5|clk  ; 6.772  ; 6.883  ; Rise       ; Devide:inst5|clk  ;
+; output[*]      ; VHDL4:inst9|clk   ; 10.468 ; 10.341 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[0]     ; VHDL4:inst9|clk   ; 10.468 ; 10.341 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[1]     ; VHDL4:inst9|clk   ; 8.384  ; 8.307  ; Rise       ; VHDL4:inst9|clk   ;
+;  output[2]     ; VHDL4:inst9|clk   ; 7.645  ; 7.590  ; Rise       ; VHDL4:inst9|clk   ;
+;  output[3]     ; VHDL4:inst9|clk   ; 7.977  ; 7.919  ; Rise       ; VHDL4:inst9|clk   ;
++----------------+-------------------+--------+--------+------------+-------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                       ;
++----------------+-------------------+-------+-------+------------+-------------------+
+; Data Port      ; Clock Port        ; Rise  ; Fall  ; Clock Edge ; Clock Reference   ;
++----------------+-------------------+-------+-------+------------+-------------------+
+; output[*]      ; Devide:inst10|clk ; 6.557 ; 6.432 ; Rise       ; Devide:inst10|clk ;
+;  output[0]     ; Devide:inst10|clk ; 9.647 ; 9.438 ; Rise       ; Devide:inst10|clk ;
+;  output[1]     ; Devide:inst10|clk ; 7.333 ; 7.117 ; Rise       ; Devide:inst10|clk ;
+;  output[2]     ; Devide:inst10|clk ; 6.557 ; 6.432 ; Rise       ; Devide:inst10|clk ;
+;  output[3]     ; Devide:inst10|clk ; 6.916 ; 6.755 ; Rise       ; Devide:inst10|clk ;
+; Seg[*]         ; Devide:inst5|clk  ; 7.388 ; 7.185 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[0]        ; Devide:inst5|clk  ; 7.440 ; 7.202 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[1]        ; Devide:inst5|clk  ; 7.987 ; 7.772 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[2]        ; Devide:inst5|clk  ; 7.720 ; 7.489 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[3]        ; Devide:inst5|clk  ; 7.951 ; 7.732 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[4]        ; Devide:inst5|clk  ; 7.388 ; 7.185 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[5]        ; Devide:inst5|clk  ; 7.898 ; 7.700 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[6]        ; Devide:inst5|clk  ; 7.776 ; 7.607 ; Rise       ; Devide:inst5|clk  ;
+; common_out[*]  ; Devide:inst5|clk  ; 6.584 ; 6.693 ; Rise       ; Devide:inst5|clk  ;
+;  common_out[0] ; Devide:inst5|clk  ; 7.013 ; 6.851 ; Rise       ; Devide:inst5|clk  ;
+;  common_out[1] ; Devide:inst5|clk  ; 6.584 ; 6.693 ; Rise       ; Devide:inst5|clk  ;
+; output[*]      ; VHDL4:inst9|clk   ; 7.005 ; 6.824 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[0]     ; VHDL4:inst9|clk   ; 9.881 ; 9.719 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[1]     ; VHDL4:inst9|clk   ; 7.758 ; 7.551 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[2]     ; VHDL4:inst9|clk   ; 7.005 ; 6.824 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[3]     ; VHDL4:inst9|clk   ; 7.535 ; 7.331 ; Rise       ; VHDL4:inst9|clk   ;
++----------------+-------------------+-------+-------+------------+-------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                  ;
++-------------+-----------------+-------------------+------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name        ; Note                                           ;
++-------------+-----------------+-------------------+------------------------------------------------+
+; 249.0 MHz   ; 249.0 MHz       ; clk_in            ;                                                ;
+; 324.36 MHz  ; 324.36 MHz      ; Devide:inst10|clk ;                                                ;
+; 341.65 MHz  ; 341.65 MHz      ; VHDL4:inst9|clk   ;                                                ;
+; 1117.32 MHz ; 350.02 MHz      ; Devide:inst5|clk  ; limit due to minimum period restriction (tmin) ;
++-------------+-----------------+-------------------+------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------------------+
+; Slow 1200mV 0C Model Setup Summary         ;
++-------------------+--------+---------------+
+; Clock             ; Slack  ; End Point TNS ;
++-------------------+--------+---------------+
+; Devide:inst5|clk  ; -9.211 ; -78.147       ;
+; VHDL4:inst9|clk   ; -3.617 ; -17.146       ;
+; clk_in            ; -3.016 ; -55.541       ;
+; Devide:inst10|clk ; -2.083 ; -19.596       ;
++-------------------+--------+---------------+
+
+
++--------------------------------------------+
+; Slow 1200mV 0C Model Hold Summary          ;
++-------------------+--------+---------------+
+; Clock             ; Slack  ; End Point TNS ;
++-------------------+--------+---------------+
+; clk_in            ; -0.313 ; -0.464        ;
+; Devide:inst10|clk ; 0.401  ; 0.000         ;
+; VHDL4:inst9|clk   ; 0.402  ; 0.000         ;
+; Devide:inst5|clk  ; 0.417  ; 0.000         ;
++-------------------+--------+---------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width                                                                                        ;
++--------+--------------+----------------+-------+------------------+-------------------+------------+----------------------------+
+; Slack  ; Actual Width ; Required Width ; CCPP  ; Type             ; Clock             ; Clock Edge ; Target                     ;
++--------+--------------+----------------+-------+------------------+-------------------+------------+----------------------------+
+; -3.000 ; 1.000        ; 4.000          ; 0.000 ; Port Rate        ; clk_in            ; Rise       ; clk_in                     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|clk          ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[0]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[10]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[11]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[12]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[13]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[14]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[15]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[16]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[1]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[2]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[3]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[4]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[5]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[6]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[7]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[8]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst10|count[9]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|clk           ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[0]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[10]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[11]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[1]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[2]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[3]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[4]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[5]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[6]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[7]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[8]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; Devide:inst5|count[9]      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[0]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[1]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[2]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[3]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[4]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[5]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[6]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[0]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[1]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[2]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[3]    ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; VHDL4:inst9|clk            ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; VHDL4:inst9|count[0]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; clk_in            ; Rise       ; VHDL4:inst9|count[1]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; common:inst8|Con[3]        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst5|clk  ; Rise       ; common:inst8|count1[0]     ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[0] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[1] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[2] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[3] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[4] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[5] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[6] ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|clk1      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|clk2      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|clk3      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[0]         ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[1]         ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[2]         ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[3]         ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|con[1]         ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|con[2]         ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|con[4]         ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|count[0]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|count[1]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|count[2]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|count[3]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|count[4]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|count[5]       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; Devide:inst10|clk ; Rise       ; sensor:inst|count[6]       ;
+; 0.168  ; 0.271        ; 0.216          ; 0.113 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[0]    ;
+; 0.168  ; 0.271        ; 0.216          ; 0.113 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; common:inst8|Con[3]        ;
+; 0.168  ; 0.271        ; 0.216          ; 0.113 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; common:inst8|count1[0]     ;
+; 0.169  ; 0.272        ; 0.216          ; 0.113 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[1]    ;
+; 0.169  ; 0.272        ; 0.216          ; 0.113 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[2]    ;
+; 0.169  ; 0.272        ; 0.216          ; 0.113 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[3]    ;
+; 0.169  ; 0.272        ; 0.216          ; 0.113 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[4]    ;
+; 0.169  ; 0.272        ; 0.216          ; 0.113 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[5]    ;
+; 0.169  ; 0.272        ; 0.216          ; 0.113 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[6]    ;
+; 0.169  ; 0.272        ; 0.216          ; 0.113 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[0]    ;
+; 0.169  ; 0.271        ; 0.216          ; 0.114 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[1]    ;
+; 0.169  ; 0.271        ; 0.216          ; 0.114 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[2]    ;
+; 0.169  ; 0.271        ; 0.216          ; 0.114 ; High Pulse Width ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[3]    ;
+; 0.209  ; 0.306        ; 0.216          ; 0.119 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|count[0]       ;
+; 0.209  ; 0.306        ; 0.216          ; 0.119 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|count[1]       ;
+; 0.209  ; 0.306        ; 0.216          ; 0.119 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|count[2]       ;
+; 0.209  ; 0.306        ; 0.216          ; 0.119 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|count[3]       ;
+; 0.209  ; 0.306        ; 0.216          ; 0.119 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|count[4]       ;
+; 0.209  ; 0.306        ; 0.216          ; 0.119 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|count[5]       ;
+; 0.209  ; 0.306        ; 0.216          ; 0.119 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|count[6]       ;
+; 0.210  ; 0.307        ; 0.216          ; 0.119 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[0]         ;
+; 0.210  ; 0.307        ; 0.216          ; 0.119 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[1]         ;
+; 0.210  ; 0.307        ; 0.216          ; 0.119 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[2]         ;
+; 0.210  ; 0.307        ; 0.216          ; 0.119 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[3]         ;
+; 0.210  ; 0.307        ; 0.216          ; 0.119 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|con[1]         ;
+; 0.210  ; 0.307        ; 0.216          ; 0.119 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|con[2]         ;
+; 0.210  ; 0.307        ; 0.216          ; 0.119 ; High Pulse Width ; Devide:inst10|clk ; Rise       ; sensor:inst|con[4]         ;
+; 0.270  ; 0.380        ; 0.216          ; 0.106 ; High Pulse Width ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[0] ;
++--------+--------------+----------------+-------+------------------+-------------------+------------+----------------------------+
+
+
++--------------------------------------------------------------------------------+
+; Setup Times                                                                    ;
++-----------+-------------------+-------+-------+------------+-------------------+
+; Data Port ; Clock Port        ; Rise  ; Fall  ; Clock Edge ; Clock Reference   ;
++-----------+-------------------+-------+-------+------------+-------------------+
+; ON_OF     ; Devide:inst10|clk ; 3.425 ; 3.783 ; Rise       ; Devide:inst10|clk ;
+; Se_line   ; Devide:inst10|clk ; 4.097 ; 3.941 ; Rise       ; Devide:inst10|clk ;
+; in[*]     ; Devide:inst10|clk ; 4.117 ; 4.158 ; Rise       ; Devide:inst10|clk ;
+;  in[0]    ; Devide:inst10|clk ; 3.325 ; 3.650 ; Rise       ; Devide:inst10|clk ;
+;  in[1]    ; Devide:inst10|clk ; 4.117 ; 4.158 ; Rise       ; Devide:inst10|clk ;
+;  in[2]    ; Devide:inst10|clk ; 4.041 ; 3.929 ; Rise       ; Devide:inst10|clk ;
+;  in[3]    ; Devide:inst10|clk ; 3.316 ; 3.458 ; Rise       ; Devide:inst10|clk ;
++-----------+-------------------+-------+-------+------------+-------------------+
+
+
++----------------------------------------------------------------------------------+
+; Hold Times                                                                       ;
++-----------+-------------------+--------+--------+------------+-------------------+
+; Data Port ; Clock Port        ; Rise   ; Fall   ; Clock Edge ; Clock Reference   ;
++-----------+-------------------+--------+--------+------------+-------------------+
+; ON_OF     ; Devide:inst10|clk ; -1.450 ; -1.519 ; Rise       ; Devide:inst10|clk ;
+; Se_line   ; Devide:inst10|clk ; -1.979 ; -2.064 ; Rise       ; Devide:inst10|clk ;
+; in[*]     ; Devide:inst10|clk ; -2.441 ; -2.499 ; Rise       ; Devide:inst10|clk ;
+;  in[0]    ; Devide:inst10|clk ; -2.523 ; -2.798 ; Rise       ; Devide:inst10|clk ;
+;  in[1]    ; Devide:inst10|clk ; -3.107 ; -3.187 ; Rise       ; Devide:inst10|clk ;
+;  in[2]    ; Devide:inst10|clk ; -3.126 ; -3.060 ; Rise       ; Devide:inst10|clk ;
+;  in[3]    ; Devide:inst10|clk ; -2.441 ; -2.499 ; Rise       ; Devide:inst10|clk ;
++-----------+-------------------+--------+--------+------------+-------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Clock to Output Times                                                               ;
++----------------+-------------------+-------+-------+------------+-------------------+
+; Data Port      ; Clock Port        ; Rise  ; Fall  ; Clock Edge ; Clock Reference   ;
++----------------+-------------------+-------+-------+------------+-------------------+
+; output[*]      ; Devide:inst10|clk ; 9.895 ; 9.682 ; Rise       ; Devide:inst10|clk ;
+;  output[0]     ; Devide:inst10|clk ; 9.895 ; 9.682 ; Rise       ; Devide:inst10|clk ;
+;  output[1]     ; Devide:inst10|clk ; 8.206 ; 7.974 ; Rise       ; Devide:inst10|clk ;
+;  output[2]     ; Devide:inst10|clk ; 7.510 ; 7.311 ; Rise       ; Devide:inst10|clk ;
+;  output[3]     ; Devide:inst10|clk ; 7.794 ; 7.604 ; Rise       ; Devide:inst10|clk ;
+; Seg[*]         ; Devide:inst5|clk  ; 9.656 ; 9.313 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[0]        ; Devide:inst5|clk  ; 9.344 ; 9.099 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[1]        ; Devide:inst5|clk  ; 9.519 ; 9.144 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[2]        ; Devide:inst5|clk  ; 9.349 ; 9.087 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[3]        ; Devide:inst5|clk  ; 9.656 ; 9.313 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[4]        ; Devide:inst5|clk  ; 8.798 ; 8.601 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[5]        ; Devide:inst5|clk  ; 9.237 ; 8.965 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[6]        ; Devide:inst5|clk  ; 9.188 ; 9.013 ; Rise       ; Devide:inst5|clk  ;
+; common_out[*]  ; Devide:inst5|clk  ; 6.901 ; 6.653 ; Rise       ; Devide:inst5|clk  ;
+;  common_out[0] ; Devide:inst5|clk  ; 6.901 ; 6.653 ; Rise       ; Devide:inst5|clk  ;
+;  common_out[1] ; Devide:inst5|clk  ; 6.403 ; 6.582 ; Rise       ; Devide:inst5|clk  ;
+; output[*]      ; VHDL4:inst9|clk   ; 9.963 ; 9.850 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[0]     ; VHDL4:inst9|clk   ; 9.963 ; 9.850 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[1]     ; VHDL4:inst9|clk   ; 7.927 ; 7.816 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[2]     ; VHDL4:inst9|clk   ; 7.231 ; 7.153 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[3]     ; VHDL4:inst9|clk   ; 7.497 ; 7.509 ; Rise       ; VHDL4:inst9|clk   ;
++----------------+-------------------+-------+-------+------------+-------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                       ;
++----------------+-------------------+-------+-------+------------+-------------------+
+; Data Port      ; Clock Port        ; Rise  ; Fall  ; Clock Edge ; Clock Reference   ;
++----------------+-------------------+-------+-------+------------+-------------------+
+; output[*]      ; Devide:inst10|clk ; 6.274 ; 6.084 ; Rise       ; Devide:inst10|clk ;
+;  output[0]     ; Devide:inst10|clk ; 9.235 ; 9.007 ; Rise       ; Devide:inst10|clk ;
+;  output[1]     ; Devide:inst10|clk ; 6.976 ; 6.717 ; Rise       ; Devide:inst10|clk ;
+;  output[2]     ; Devide:inst10|clk ; 6.274 ; 6.084 ; Rise       ; Devide:inst10|clk ;
+;  output[3]     ; Devide:inst10|clk ; 6.592 ; 6.379 ; Rise       ; Devide:inst10|clk ;
+; Seg[*]         ; Devide:inst5|clk  ; 7.041 ; 6.785 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[0]        ; Devide:inst5|clk  ; 7.112 ; 6.798 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[1]        ; Devide:inst5|clk  ; 7.601 ; 7.283 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[2]        ; Devide:inst5|clk  ; 7.310 ; 7.018 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[3]        ; Devide:inst5|clk  ; 7.569 ; 7.301 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[4]        ; Devide:inst5|clk  ; 7.041 ; 6.785 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[5]        ; Devide:inst5|clk  ; 7.505 ; 7.264 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[6]        ; Devide:inst5|clk  ; 7.392 ; 7.192 ; Rise       ; Devide:inst5|clk  ;
+; common_out[*]  ; Devide:inst5|clk  ; 6.230 ; 6.403 ; Rise       ; Devide:inst5|clk  ;
+;  common_out[0] ; Devide:inst5|clk  ; 6.710 ; 6.470 ; Rise       ; Devide:inst5|clk  ;
+;  common_out[1] ; Devide:inst5|clk  ; 6.230 ; 6.403 ; Rise       ; Devide:inst5|clk  ;
+; output[*]      ; VHDL4:inst9|clk   ; 6.673 ; 6.417 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[0]     ; VHDL4:inst9|clk   ; 9.438 ; 9.272 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[1]     ; VHDL4:inst9|clk   ; 7.369 ; 7.091 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[2]     ; VHDL4:inst9|clk   ; 6.673 ; 6.417 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[3]     ; VHDL4:inst9|clk   ; 7.108 ; 6.930 ; Rise       ; VHDL4:inst9|clk   ;
++----------------+-------------------+-------+-------+------------+-------------------+
+
+
++--------------------------------------------+
+; Fast 1200mV 0C Model Setup Summary         ;
++-------------------+--------+---------------+
+; Clock             ; Slack  ; End Point TNS ;
++-------------------+--------+---------------+
+; Devide:inst5|clk  ; -3.796 ; -30.781       ;
+; VHDL4:inst9|clk   ; -1.084 ; -3.229        ;
+; clk_in            ; -0.816 ; -8.914        ;
+; Devide:inst10|clk ; -0.390 ; -2.450        ;
++-------------------+--------+---------------+
+
+
++--------------------------------------------+
+; Fast 1200mV 0C Model Hold Summary          ;
++-------------------+--------+---------------+
+; Clock             ; Slack  ; End Point TNS ;
++-------------------+--------+---------------+
+; clk_in            ; -0.318 ; -0.645        ;
+; VHDL4:inst9|clk   ; 0.186  ; 0.000         ;
+; Devide:inst10|clk ; 0.187  ; 0.000         ;
+; Devide:inst5|clk  ; 0.193  ; 0.000         ;
++-------------------+--------+---------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width                                                                                       ;
++--------+--------------+----------------+-------+-----------------+-------------------+------------+----------------------------+
+; Slack  ; Actual Width ; Required Width ; CCPP  ; Type            ; Clock             ; Clock Edge ; Target                     ;
++--------+--------------+----------------+-------+-----------------+-------------------+------------+----------------------------+
+; -3.000 ; 1.000        ; 4.000          ; 0.000 ; Port Rate       ; clk_in            ; Rise       ; clk_in                     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|clk          ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|count[0]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|count[10]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|count[11]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|count[12]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|count[13]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|count[14]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|count[15]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|count[16]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|count[1]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|count[2]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|count[3]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|count[4]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|count[5]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|count[6]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|count[7]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|count[8]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst10|count[9]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst5|clk           ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst5|count[0]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst5|count[10]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst5|count[11]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst5|count[1]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst5|count[2]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst5|count[3]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst5|count[4]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst5|count[5]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst5|count[6]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst5|count[7]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst5|count[8]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; Devide:inst5|count[9]      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[0]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[1]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[2]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[3]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[4]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[5]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_one[6]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[0]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[1]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[2]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst5|clk  ; Rise       ; Seg_in:inst6|seg_ten[3]    ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; VHDL4:inst9|clk            ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; VHDL4:inst9|count[0]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; clk_in            ; Rise       ; VHDL4:inst9|count[1]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst5|clk  ; Rise       ; common:inst8|Con[3]        ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst5|clk  ; Rise       ; common:inst8|count1[0]     ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[0] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[1] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[2] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[3] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[4] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[5] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|Count1[6] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|clk1      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|clk2      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; VHDL4:inst9|clk   ; Rise       ; dutysensor:inst1|clk3      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[0]         ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[1]         ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[2]         ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst10|clk ; Rise       ; sensor:inst|chk[3]         ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst10|clk ; Rise       ; sensor:inst|con[1]         ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst10|clk ; Rise       ; sensor:inst|con[2]         ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst10|clk ; Rise       ; sensor:inst|con[4]         ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst10|clk ; Rise       ; sensor:inst|count[0]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst10|clk ; Rise       ; sensor:inst|count[1]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst10|clk ; Rise       ; sensor:inst|count[2]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst10|clk ; Rise       ; sensor:inst|count[3]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst10|clk ; Rise       ; sensor:inst|count[4]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst10|clk ; Rise       ; sensor:inst|count[5]       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period      ; Devide:inst10|clk ; Rise       ; sensor:inst|count[6]       ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst10|count[10]    ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst10|count[11]    ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst10|count[12]    ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst10|count[13]    ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst10|count[14]    ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst10|count[15]    ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst10|count[16]    ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst10|count[9]     ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst5|clk           ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst5|count[0]      ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst5|count[10]     ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst5|count[11]     ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst5|count[1]      ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst5|count[2]      ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst5|count[3]      ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst5|count[4]      ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst5|count[5]      ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst5|count[6]      ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst5|count[7]      ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst5|count[8]      ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst5|count[9]      ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; VHDL4:inst9|clk            ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; VHDL4:inst9|count[0]       ;
+; -0.062 ; 0.078        ; 0.184          ; 0.044 ; Low Pulse Width ; clk_in            ; Rise       ; VHDL4:inst9|count[1]       ;
+; -0.061 ; 0.078        ; 0.184          ; 0.045 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst10|clk          ;
+; -0.061 ; 0.078        ; 0.184          ; 0.045 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst10|count[0]     ;
+; -0.061 ; 0.078        ; 0.184          ; 0.045 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst10|count[1]     ;
+; -0.061 ; 0.078        ; 0.184          ; 0.045 ; Low Pulse Width ; clk_in            ; Rise       ; Devide:inst10|count[2]     ;
++--------+--------------+----------------+-------+-----------------+-------------------+------------+----------------------------+
+
+
++--------------------------------------------------------------------------------+
+; Setup Times                                                                    ;
++-----------+-------------------+-------+-------+------------+-------------------+
+; Data Port ; Clock Port        ; Rise  ; Fall  ; Clock Edge ; Clock Reference   ;
++-----------+-------------------+-------+-------+------------+-------------------+
+; ON_OF     ; Devide:inst10|clk ; 1.777 ; 2.316 ; Rise       ; Devide:inst10|clk ;
+; Se_line   ; Devide:inst10|clk ; 1.935 ; 2.593 ; Rise       ; Devide:inst10|clk ;
+; in[*]     ; Devide:inst10|clk ; 1.992 ; 2.616 ; Rise       ; Devide:inst10|clk ;
+;  in[0]    ; Devide:inst10|clk ; 1.741 ; 2.334 ; Rise       ; Devide:inst10|clk ;
+;  in[1]    ; Devide:inst10|clk ; 1.992 ; 2.616 ; Rise       ; Devide:inst10|clk ;
+;  in[2]    ; Devide:inst10|clk ; 1.918 ; 2.581 ; Rise       ; Devide:inst10|clk ;
+;  in[3]    ; Devide:inst10|clk ; 1.638 ; 2.256 ; Rise       ; Devide:inst10|clk ;
++-----------+-------------------+-------+-------+------------+-------------------+
+
+
++----------------------------------------------------------------------------------+
+; Hold Times                                                                       ;
++-----------+-------------------+--------+--------+------------+-------------------+
+; Data Port ; Clock Port        ; Rise   ; Fall   ; Clock Edge ; Clock Reference   ;
++-----------+-------------------+--------+--------+------------+-------------------+
+; ON_OF     ; Devide:inst10|clk ; -0.780 ; -1.351 ; Rise       ; Devide:inst10|clk ;
+; Se_line   ; Devide:inst10|clk ; -1.040 ; -1.652 ; Rise       ; Devide:inst10|clk ;
+; in[*]     ; Devide:inst10|clk ; -1.233 ; -1.891 ; Rise       ; Devide:inst10|clk ;
+;  in[0]    ; Devide:inst10|clk ; -1.374 ; -1.934 ; Rise       ; Devide:inst10|clk ;
+;  in[1]    ; Devide:inst10|clk ; -1.580 ; -2.165 ; Rise       ; Devide:inst10|clk ;
+;  in[2]    ; Devide:inst10|clk ; -1.509 ; -2.167 ; Rise       ; Devide:inst10|clk ;
+;  in[3]    ; Devide:inst10|clk ; -1.233 ; -1.891 ; Rise       ; Devide:inst10|clk ;
++-----------+-------------------+--------+--------+------------+-------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Clock to Output Times                                                               ;
++----------------+-------------------+-------+-------+------------+-------------------+
+; Data Port      ; Clock Port        ; Rise  ; Fall  ; Clock Edge ; Clock Reference   ;
++----------------+-------------------+-------+-------+------------+-------------------+
+; output[*]      ; Devide:inst10|clk ; 4.977 ; 5.203 ; Rise       ; Devide:inst10|clk ;
+;  output[0]     ; Devide:inst10|clk ; 4.977 ; 5.203 ; Rise       ; Devide:inst10|clk ;
+;  output[1]     ; Devide:inst10|clk ; 4.000 ; 4.091 ; Rise       ; Devide:inst10|clk ;
+;  output[2]     ; Devide:inst10|clk ; 3.659 ; 3.712 ; Rise       ; Devide:inst10|clk ;
+;  output[3]     ; Devide:inst10|clk ; 3.842 ; 3.850 ; Rise       ; Devide:inst10|clk ;
+; Seg[*]         ; Devide:inst5|clk  ; 4.598 ; 4.753 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[0]        ; Devide:inst5|clk  ; 4.493 ; 4.536 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[1]        ; Devide:inst5|clk  ; 4.552 ; 4.672 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[2]        ; Devide:inst5|clk  ; 4.525 ; 4.587 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[3]        ; Devide:inst5|clk  ; 4.598 ; 4.753 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[4]        ; Devide:inst5|clk  ; 4.218 ; 4.257 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[5]        ; Devide:inst5|clk  ; 4.423 ; 4.512 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[6]        ; Devide:inst5|clk  ; 4.469 ; 4.519 ; Rise       ; Devide:inst5|clk  ;
+; common_out[*]  ; Devide:inst5|clk  ; 3.345 ; 3.461 ; Rise       ; Devide:inst5|clk  ;
+;  common_out[0] ; Devide:inst5|clk  ; 3.345 ; 3.461 ; Rise       ; Devide:inst5|clk  ;
+;  common_out[1] ; Devide:inst5|clk  ; 3.305 ; 3.214 ; Rise       ; Devide:inst5|clk  ;
+; output[*]      ; VHDL4:inst9|clk   ; 5.106 ; 5.200 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[0]     ; VHDL4:inst9|clk   ; 5.106 ; 5.200 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[1]     ; VHDL4:inst9|clk   ; 3.909 ; 3.969 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[2]     ; VHDL4:inst9|clk   ; 3.568 ; 3.590 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[3]     ; VHDL4:inst9|clk   ; 3.752 ; 3.731 ; Rise       ; VHDL4:inst9|clk   ;
++----------------+-------------------+-------+-------+------------+-------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                       ;
++----------------+-------------------+-------+-------+------------+-------------------+
+; Data Port      ; Clock Port        ; Rise  ; Fall  ; Clock Edge ; Clock Reference   ;
++----------------+-------------------+-------+-------+------------+-------------------+
+; output[*]      ; Devide:inst10|clk ; 3.067 ; 3.118 ; Rise       ; Devide:inst10|clk ;
+;  output[0]     ; Devide:inst10|clk ; 4.730 ; 4.838 ; Rise       ; Devide:inst10|clk ;
+;  output[1]     ; Devide:inst10|clk ; 3.432 ; 3.476 ; Rise       ; Devide:inst10|clk ;
+;  output[2]     ; Devide:inst10|clk ; 3.067 ; 3.118 ; Rise       ; Devide:inst10|clk ;
+;  output[3]     ; Devide:inst10|clk ; 3.236 ; 3.302 ; Rise       ; Devide:inst10|clk ;
+; Seg[*]         ; Devide:inst5|clk  ; 3.346 ; 3.408 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[0]        ; Devide:inst5|clk  ; 3.415 ; 3.503 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[1]        ; Devide:inst5|clk  ; 3.637 ; 3.759 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[2]        ; Devide:inst5|clk  ; 3.538 ; 3.629 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[3]        ; Devide:inst5|clk  ; 3.616 ; 3.722 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[4]        ; Devide:inst5|clk  ; 3.346 ; 3.408 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[5]        ; Devide:inst5|clk  ; 3.597 ; 3.684 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[6]        ; Devide:inst5|clk  ; 3.592 ; 3.632 ; Rise       ; Devide:inst5|clk  ;
+; common_out[*]  ; Devide:inst5|clk  ; 3.219 ; 3.131 ; Rise       ; Devide:inst5|clk  ;
+;  common_out[0] ; Devide:inst5|clk  ; 3.258 ; 3.370 ; Rise       ; Devide:inst5|clk  ;
+;  common_out[1] ; Devide:inst5|clk  ; 3.219 ; 3.131 ; Rise       ; Devide:inst5|clk  ;
+; output[*]      ; VHDL4:inst9|clk   ; 3.240 ; 3.276 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[0]     ; VHDL4:inst9|clk   ; 4.850 ; 4.944 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[1]     ; VHDL4:inst9|clk   ; 3.589 ; 3.658 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[2]     ; VHDL4:inst9|clk   ; 3.240 ; 3.276 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[3]     ; VHDL4:inst9|clk   ; 3.519 ; 3.498 ; Rise       ; VHDL4:inst9|clk   ;
++----------------+-------------------+-------+-------+------------+-------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                               ;
++--------------------+----------+--------+----------+---------+---------------------+
+; Clock              ; Setup    ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
++--------------------+----------+--------+----------+---------+---------------------+
+; Worst-case Slack   ; -10.180  ; -0.348 ; 0.0      ; 0.0     ; -3.000              ;
+;  Devide:inst10|clk ; -2.247   ; 0.187  ; N/A      ; N/A     ; N/A                 ;
+;  Devide:inst5|clk  ; -10.180  ; 0.193  ; N/A      ; N/A     ; N/A                 ;
+;  VHDL4:inst9|clk   ; -3.987   ; 0.186  ; N/A      ; N/A     ; N/A                 ;
+;  clk_in            ; -3.278   ; -0.348 ; N/A      ; N/A     ; N/A                 ;
+; Design-wide TNS    ; -190.572 ; -0.645 ; 0.0      ; 0.0     ; N/A                 ;
+;  Devide:inst10|clk ; -21.677  ; 0.000  ; N/A      ; N/A     ; N/A                 ;
+;  Devide:inst5|clk  ; -86.605  ; 0.000  ; N/A      ; N/A     ; N/A                 ;
+;  VHDL4:inst9|clk   ; -19.246  ; 0.000  ; N/A      ; N/A     ; N/A                 ;
+;  clk_in            ; -63.044  ; -0.645 ; N/A      ; N/A     ; N/A                 ;
++--------------------+----------+--------+----------+---------+---------------------+
+
+
++--------------------------------------------------------------------------------+
+; Setup Times                                                                    ;
++-----------+-------------------+-------+-------+------------+-------------------+
+; Data Port ; Clock Port        ; Rise  ; Fall  ; Clock Edge ; Clock Reference   ;
++-----------+-------------------+-------+-------+------------+-------------------+
+; ON_OF     ; Devide:inst10|clk ; 3.777 ; 4.183 ; Rise       ; Devide:inst10|clk ;
+; Se_line   ; Devide:inst10|clk ; 4.401 ; 4.466 ; Rise       ; Devide:inst10|clk ;
+; in[*]     ; Devide:inst10|clk ; 4.399 ; 4.634 ; Rise       ; Devide:inst10|clk ;
+;  in[0]    ; Devide:inst10|clk ; 3.628 ; 4.044 ; Rise       ; Devide:inst10|clk ;
+;  in[1]    ; Devide:inst10|clk ; 4.399 ; 4.634 ; Rise       ; Devide:inst10|clk ;
+;  in[2]    ; Devide:inst10|clk ; 4.337 ; 4.454 ; Rise       ; Devide:inst10|clk ;
+;  in[3]    ; Devide:inst10|clk ; 3.577 ; 3.852 ; Rise       ; Devide:inst10|clk ;
++-----------+-------------------+-------+-------+------------+-------------------+
+
+
++----------------------------------------------------------------------------------+
+; Hold Times                                                                       ;
++-----------+-------------------+--------+--------+------------+-------------------+
+; Data Port ; Clock Port        ; Rise   ; Fall   ; Clock Edge ; Clock Reference   ;
++-----------+-------------------+--------+--------+------------+-------------------+
+; ON_OF     ; Devide:inst10|clk ; -0.780 ; -1.351 ; Rise       ; Devide:inst10|clk ;
+; Se_line   ; Devide:inst10|clk ; -1.040 ; -1.652 ; Rise       ; Devide:inst10|clk ;
+; in[*]     ; Devide:inst10|clk ; -1.233 ; -1.891 ; Rise       ; Devide:inst10|clk ;
+;  in[0]    ; Devide:inst10|clk ; -1.374 ; -1.934 ; Rise       ; Devide:inst10|clk ;
+;  in[1]    ; Devide:inst10|clk ; -1.580 ; -2.165 ; Rise       ; Devide:inst10|clk ;
+;  in[2]    ; Devide:inst10|clk ; -1.509 ; -2.167 ; Rise       ; Devide:inst10|clk ;
+;  in[3]    ; Devide:inst10|clk ; -1.233 ; -1.891 ; Rise       ; Devide:inst10|clk ;
++-----------+-------------------+--------+--------+------------+-------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                 ;
++----------------+-------------------+--------+--------+------------+-------------------+
+; Data Port      ; Clock Port        ; Rise   ; Fall   ; Clock Edge ; Clock Reference   ;
++----------------+-------------------+--------+--------+------------+-------------------+
+; output[*]      ; Devide:inst10|clk ; 10.311 ; 10.217 ; Rise       ; Devide:inst10|clk ;
+;  output[0]     ; Devide:inst10|clk ; 10.311 ; 10.217 ; Rise       ; Devide:inst10|clk ;
+;  output[1]     ; Devide:inst10|clk ; 8.668  ; 8.495  ; Rise       ; Devide:inst10|clk ;
+;  output[2]     ; Devide:inst10|clk ; 7.929  ; 7.778  ; Rise       ; Devide:inst10|clk ;
+;  output[3]     ; Devide:inst10|clk ; 8.271  ; 8.080  ; Rise       ; Devide:inst10|clk ;
+; Seg[*]         ; Devide:inst5|clk  ; 10.087 ; 9.896  ; Rise       ; Devide:inst5|clk  ;
+;  Seg[0]        ; Devide:inst5|clk  ; 9.863  ; 9.670  ; Rise       ; Devide:inst5|clk  ;
+;  Seg[1]        ; Devide:inst5|clk  ; 9.950  ; 9.709  ; Rise       ; Devide:inst5|clk  ;
+;  Seg[2]        ; Devide:inst5|clk  ; 9.878  ; 9.675  ; Rise       ; Devide:inst5|clk  ;
+;  Seg[3]        ; Devide:inst5|clk  ; 10.087 ; 9.896  ; Rise       ; Devide:inst5|clk  ;
+;  Seg[4]        ; Devide:inst5|clk  ; 9.275  ; 9.133  ; Rise       ; Devide:inst5|clk  ;
+;  Seg[5]        ; Devide:inst5|clk  ; 9.646  ; 9.521  ; Rise       ; Devide:inst5|clk  ;
+;  Seg[6]        ; Devide:inst5|clk  ; 9.674  ; 9.495  ; Rise       ; Devide:inst5|clk  ;
+; common_out[*]  ; Devide:inst5|clk  ; 7.216  ; 7.050  ; Rise       ; Devide:inst5|clk  ;
+;  common_out[0] ; Devide:inst5|clk  ; 7.216  ; 7.050  ; Rise       ; Devide:inst5|clk  ;
+;  common_out[1] ; Devide:inst5|clk  ; 6.772  ; 6.883  ; Rise       ; Devide:inst5|clk  ;
+; output[*]      ; VHDL4:inst9|clk   ; 10.468 ; 10.341 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[0]     ; VHDL4:inst9|clk   ; 10.468 ; 10.341 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[1]     ; VHDL4:inst9|clk   ; 8.384  ; 8.307  ; Rise       ; VHDL4:inst9|clk   ;
+;  output[2]     ; VHDL4:inst9|clk   ; 7.645  ; 7.590  ; Rise       ; VHDL4:inst9|clk   ;
+;  output[3]     ; VHDL4:inst9|clk   ; 7.977  ; 7.919  ; Rise       ; VHDL4:inst9|clk   ;
++----------------+-------------------+--------+--------+------------+-------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                       ;
++----------------+-------------------+-------+-------+------------+-------------------+
+; Data Port      ; Clock Port        ; Rise  ; Fall  ; Clock Edge ; Clock Reference   ;
++----------------+-------------------+-------+-------+------------+-------------------+
+; output[*]      ; Devide:inst10|clk ; 3.067 ; 3.118 ; Rise       ; Devide:inst10|clk ;
+;  output[0]     ; Devide:inst10|clk ; 4.730 ; 4.838 ; Rise       ; Devide:inst10|clk ;
+;  output[1]     ; Devide:inst10|clk ; 3.432 ; 3.476 ; Rise       ; Devide:inst10|clk ;
+;  output[2]     ; Devide:inst10|clk ; 3.067 ; 3.118 ; Rise       ; Devide:inst10|clk ;
+;  output[3]     ; Devide:inst10|clk ; 3.236 ; 3.302 ; Rise       ; Devide:inst10|clk ;
+; Seg[*]         ; Devide:inst5|clk  ; 3.346 ; 3.408 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[0]        ; Devide:inst5|clk  ; 3.415 ; 3.503 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[1]        ; Devide:inst5|clk  ; 3.637 ; 3.759 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[2]        ; Devide:inst5|clk  ; 3.538 ; 3.629 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[3]        ; Devide:inst5|clk  ; 3.616 ; 3.722 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[4]        ; Devide:inst5|clk  ; 3.346 ; 3.408 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[5]        ; Devide:inst5|clk  ; 3.597 ; 3.684 ; Rise       ; Devide:inst5|clk  ;
+;  Seg[6]        ; Devide:inst5|clk  ; 3.592 ; 3.632 ; Rise       ; Devide:inst5|clk  ;
+; common_out[*]  ; Devide:inst5|clk  ; 3.219 ; 3.131 ; Rise       ; Devide:inst5|clk  ;
+;  common_out[0] ; Devide:inst5|clk  ; 3.258 ; 3.370 ; Rise       ; Devide:inst5|clk  ;
+;  common_out[1] ; Devide:inst5|clk  ; 3.219 ; 3.131 ; Rise       ; Devide:inst5|clk  ;
+; output[*]      ; VHDL4:inst9|clk   ; 3.240 ; 3.276 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[0]     ; VHDL4:inst9|clk   ; 4.850 ; 4.944 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[1]     ; VHDL4:inst9|clk   ; 3.589 ; 3.658 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[2]     ; VHDL4:inst9|clk   ; 3.240 ; 3.276 ; Rise       ; VHDL4:inst9|clk   ;
+;  output[3]     ; VHDL4:inst9|clk   ; 3.519 ; 3.498 ; Rise       ; VHDL4:inst9|clk   ;
++----------------+-------------------+-------+-------+------------+-------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+
+; common_out[0] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; common_out[1] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; common_out[2] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; common_out[3] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; common_out[4] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; common_out[5] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; output[3]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; output[2]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; output[1]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; output[0]     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; Seg[0]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; Seg[1]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; Seg[2]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; Seg[3]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; Seg[4]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; Seg[5]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; Seg[6]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; Seg[7]        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; in[3]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; in[2]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; in[1]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; in[0]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; Se_line                 ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ON_OF                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; clk_in                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; common_out[0] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; common_out[1] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; common_out[2] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; common_out[3] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; common_out[4] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; common_out[5] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; output[3]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; output[2]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.34 V              ; -0.00798 V          ; 0.14 V                               ; 0.045 V                              ; 6.89e-010 s                 ; 6.56e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.34 V             ; -0.00798 V         ; 0.14 V                              ; 0.045 V                             ; 6.89e-010 s                ; 6.56e-010 s                ; Yes                       ; Yes                       ;
+; output[1]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.34 V              ; -0.00798 V          ; 0.14 V                               ; 0.045 V                              ; 6.89e-010 s                 ; 6.56e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.34 V             ; -0.00798 V         ; 0.14 V                              ; 0.045 V                             ; 6.89e-010 s                ; 6.56e-010 s                ; Yes                       ; Yes                       ;
+; output[0]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.33 V              ; -0.00215 V          ; 0.091 V                              ; 0.057 V                              ; 3.77e-009 s                 ; 3.49e-009 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.33 V             ; -0.00215 V         ; 0.091 V                             ; 0.057 V                             ; 3.77e-009 s                ; 3.49e-009 s                ; Yes                       ; Yes                       ;
+; Seg[0]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; Seg[1]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; Seg[2]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; Seg[3]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; Seg[4]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.35 V              ; -0.00727 V          ; 0.126 V                              ; 0.011 V                              ; 4.7e-010 s                  ; 4.62e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.35 V             ; -0.00727 V         ; 0.126 V                             ; 0.011 V                             ; 4.7e-010 s                 ; 4.62e-010 s                ; Yes                       ; Yes                       ;
+; Seg[5]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; Seg[6]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; Seg[7]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.53e-007 V                  ; 2.35 V              ; -0.00333 V          ; 0.096 V                              ; 0.006 V                              ; 4.5e-010 s                  ; 3.85e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.53e-007 V                 ; 2.35 V             ; -0.00333 V         ; 0.096 V                             ; 0.006 V                             ; 4.5e-010 s                 ; 3.85e-010 s                ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.51e-007 V                  ; 2.34 V              ; -0.00699 V          ; 0.108 V                              ; 0.027 V                              ; 6.58e-010 s                 ; 8.21e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.51e-007 V                 ; 2.34 V             ; -0.00699 V         ; 0.108 V                             ; 0.027 V                             ; 6.58e-010 s                ; 8.21e-010 s                ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; common_out[0] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0356 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0356 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; common_out[1] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0356 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0356 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; common_out[2] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0356 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0356 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; common_out[3] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0356 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0356 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; common_out[4] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0356 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0356 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; common_out[5] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0356 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0356 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; output[3]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0356 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0356 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; output[2]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.7e-008 V                   ; 2.71 V              ; -0.0345 V           ; 0.146 V                              ; 0.066 V                              ; 4.51e-010 s                 ; 4.15e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 2.7e-008 V                  ; 2.71 V             ; -0.0345 V          ; 0.146 V                             ; 0.066 V                             ; 4.51e-010 s                ; 4.15e-010 s                ; No                        ; Yes                       ;
+; output[1]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.7e-008 V                   ; 2.71 V              ; -0.0345 V           ; 0.146 V                              ; 0.066 V                              ; 4.51e-010 s                 ; 4.15e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 2.7e-008 V                  ; 2.71 V             ; -0.0345 V          ; 0.146 V                             ; 0.066 V                             ; 4.51e-010 s                ; 4.15e-010 s                ; No                        ; Yes                       ;
+; output[0]     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.64 V              ; -0.0117 V           ; 0.204 V                              ; 0.179 V                              ; 2.38e-009 s                 ; 2.23e-009 s                 ; No                         ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.64 V             ; -0.0117 V          ; 0.204 V                             ; 0.179 V                             ; 2.38e-009 s                ; 2.23e-009 s                ; No                        ; Yes                       ;
+; Seg[0]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0356 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0356 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; Seg[1]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0356 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0356 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; Seg[2]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0356 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0356 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; Seg[3]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0356 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0356 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; Seg[4]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.7e-008 V                   ; 2.72 V              ; -0.0402 V           ; 0.163 V                              ; 0.091 V                              ; 2.71e-010 s                 ; 2.62e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 2.7e-008 V                  ; 2.72 V             ; -0.0402 V          ; 0.163 V                             ; 0.091 V                             ; 2.71e-010 s                ; 2.62e-010 s                ; Yes                       ; Yes                       ;
+; Seg[5]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0356 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0356 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; Seg[6]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0356 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0356 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; Seg[7]        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0356 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0356 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.2e-008 V                   ; 2.74 V              ; -0.061 V            ; 0.159 V                              ; 0.078 V                              ; 2.7e-010 s                  ; 2.2e-010 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.2e-008 V                  ; 2.74 V             ; -0.061 V           ; 0.159 V                             ; 0.078 V                             ; 2.7e-010 s                 ; 2.2e-010 s                 ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.52e-008 V                  ; 2.7 V               ; -0.012 V            ; 0.274 V                              ; 0.034 V                              ; 3.18e-010 s                 ; 4.97e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 3.52e-008 V                 ; 2.7 V              ; -0.012 V           ; 0.274 V                             ; 0.034 V                             ; 3.18e-010 s                ; 4.97e-010 s                ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Setup Transfers                                                                   ;
++-------------------+-------------------+----------+----------+----------+----------+
+; From Clock        ; To Clock          ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------------+-------------------+----------+----------+----------+----------+
+; clk_in            ; clk_in            ; 509      ; 0        ; 0        ; 0        ;
+; Devide:inst5|clk  ; clk_in            ; 1        ; 1        ; 0        ; 0        ;
+; Devide:inst10|clk ; clk_in            ; 1        ; 1        ; 0        ; 0        ;
+; VHDL4:inst9|clk   ; clk_in            ; 1        ; 1        ; 0        ; 0        ;
+; Devide:inst5|clk  ; Devide:inst5|clk  ; 4        ; 0        ; 0        ; 0        ;
+; Devide:inst10|clk ; Devide:inst5|clk  ; 75057    ; 0        ; 0        ; 0        ;
+; Devide:inst10|clk ; Devide:inst10|clk ; 70       ; 0        ; 0        ; 0        ;
+; Devide:inst10|clk ; VHDL4:inst9|clk   ; 77       ; 0        ; 0        ; 0        ;
+; VHDL4:inst9|clk   ; VHDL4:inst9|clk   ; 96       ; 0        ; 0        ; 0        ;
++-------------------+-------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------+
+; Hold Transfers                                                                    ;
++-------------------+-------------------+----------+----------+----------+----------+
+; From Clock        ; To Clock          ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------------+-------------------+----------+----------+----------+----------+
+; clk_in            ; clk_in            ; 509      ; 0        ; 0        ; 0        ;
+; Devide:inst5|clk  ; clk_in            ; 1        ; 1        ; 0        ; 0        ;
+; Devide:inst10|clk ; clk_in            ; 1        ; 1        ; 0        ; 0        ;
+; VHDL4:inst9|clk   ; clk_in            ; 1        ; 1        ; 0        ; 0        ;
+; Devide:inst5|clk  ; Devide:inst5|clk  ; 4        ; 0        ; 0        ; 0        ;
+; Devide:inst10|clk ; Devide:inst5|clk  ; 75057    ; 0        ; 0        ; 0        ;
+; Devide:inst10|clk ; Devide:inst10|clk ; 70       ; 0        ; 0        ; 0        ;
+; Devide:inst10|clk ; VHDL4:inst9|clk   ; 77       ; 0        ; 0        ; 0        ;
+; VHDL4:inst9|clk   ; VHDL4:inst9|clk   ; 96       ; 0        ; 0        ; 0        ;
++-------------------+-------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design.
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design.
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 6     ; 6    ;
+; Unconstrained Input Port Paths  ; 44    ; 44   ;
+; Unconstrained Output Ports      ; 13    ; 13   ;
+; Unconstrained Output Port Paths ; 110   ; 110  ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+    Info: Processing started: Fri May 27 05:06:47 2016
+Info: Command: quartus_sta VHDL3 -c VHDL3
+Info: qsta_default_script.tcl version: #1
+Info: Core supply voltage is 1.2V
+Info: Low junction temperature is 0 degrees C
+Info: High junction temperature is 85 degrees C
+Critical Warning: Synopsys Design Constraints File file not found: 'VHDL3.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info: No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info: Deriving Clocks
+    Info: create_clock -period 1.000 -name Devide:inst5|clk Devide:inst5|clk
+    Info: create_clock -period 1.000 -name clk_in clk_in
+    Info: create_clock -period 1.000 -name Devide:inst10|clk Devide:inst10|clk
+    Info: create_clock -period 1.000 -name VHDL4:inst9|clk VHDL4:inst9|clk
+Critical Warning: The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning: From Devide:inst5|clk (Rise) to Devide:inst5|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst5|clk (Fall) to Devide:inst5|clk (Rise) (setup and hold)
+    Critical Warning: From clk_in (Rise) to Devide:inst5|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Rise) to Devide:inst5|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst5|clk (Rise) to Devide:inst5|clk (Fall) (setup and hold)
+    Critical Warning: From Devide:inst5|clk (Fall) to Devide:inst5|clk (Fall) (setup and hold)
+    Critical Warning: From clk_in (Rise) to Devide:inst5|clk (Fall) (setup and hold)
+    Critical Warning: From Devide:inst5|clk (Rise) to clk_in (Rise) (setup and hold)
+    Critical Warning: From Devide:inst5|clk (Fall) to clk_in (Rise) (setup and hold)
+    Critical Warning: From clk_in (Rise) to clk_in (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Rise) to clk_in (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Fall) to clk_in (Rise) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Rise) to clk_in (Rise) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Fall) to clk_in (Rise) (setup and hold)
+    Critical Warning: From clk_in (Rise) to Devide:inst10|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Rise) to Devide:inst10|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Fall) to Devide:inst10|clk (Rise) (setup and hold)
+    Critical Warning: From clk_in (Rise) to Devide:inst10|clk (Fall) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Rise) to Devide:inst10|clk (Fall) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Fall) to Devide:inst10|clk (Fall) (setup and hold)
+    Critical Warning: From clk_in (Rise) to VHDL4:inst9|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Rise) to VHDL4:inst9|clk (Rise) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Rise) to VHDL4:inst9|clk (Rise) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Fall) to VHDL4:inst9|clk (Rise) (setup and hold)
+    Critical Warning: From clk_in (Rise) to VHDL4:inst9|clk (Fall) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Rise) to VHDL4:inst9|clk (Fall) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Fall) to VHDL4:inst9|clk (Fall) (setup and hold)
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -10.180
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:   -10.180       -86.605 Devide:inst5|clk 
+    Info:    -3.987       -19.246 VHDL4:inst9|clk 
+    Info:    -3.278       -63.044 clk_in 
+    Info:    -2.247       -21.677 Devide:inst10|clk 
+Info: Worst-case hold slack is -0.348
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -0.348        -0.520 clk_in 
+    Info:     0.453         0.000 VHDL4:inst9|clk 
+    Info:     0.454         0.000 Devide:inst10|clk 
+    Info:     0.466         0.000 Devide:inst5|clk 
+Info: No recovery paths to report
+Info: No removal paths to report
+Critical Warning: Found minimum pulse width or period violations. See Report Minimum Pulse Width for details.
+Info: The Metastability Analysis global option is set to OFF.
+Info: No synchronizer chains to report.
+Info: Analyzing Slow 1200mV 0C Model
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Critical Warning: The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning: From Devide:inst5|clk (Rise) to Devide:inst5|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst5|clk (Fall) to Devide:inst5|clk (Rise) (setup and hold)
+    Critical Warning: From clk_in (Rise) to Devide:inst5|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Rise) to Devide:inst5|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst5|clk (Rise) to Devide:inst5|clk (Fall) (setup and hold)
+    Critical Warning: From Devide:inst5|clk (Fall) to Devide:inst5|clk (Fall) (setup and hold)
+    Critical Warning: From clk_in (Rise) to Devide:inst5|clk (Fall) (setup and hold)
+    Critical Warning: From Devide:inst5|clk (Rise) to clk_in (Rise) (setup and hold)
+    Critical Warning: From Devide:inst5|clk (Fall) to clk_in (Rise) (setup and hold)
+    Critical Warning: From clk_in (Rise) to clk_in (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Rise) to clk_in (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Fall) to clk_in (Rise) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Rise) to clk_in (Rise) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Fall) to clk_in (Rise) (setup and hold)
+    Critical Warning: From clk_in (Rise) to Devide:inst10|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Rise) to Devide:inst10|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Fall) to Devide:inst10|clk (Rise) (setup and hold)
+    Critical Warning: From clk_in (Rise) to Devide:inst10|clk (Fall) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Rise) to Devide:inst10|clk (Fall) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Fall) to Devide:inst10|clk (Fall) (setup and hold)
+    Critical Warning: From clk_in (Rise) to VHDL4:inst9|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Rise) to VHDL4:inst9|clk (Rise) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Rise) to VHDL4:inst9|clk (Rise) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Fall) to VHDL4:inst9|clk (Rise) (setup and hold)
+    Critical Warning: From clk_in (Rise) to VHDL4:inst9|clk (Fall) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Rise) to VHDL4:inst9|clk (Fall) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Fall) to VHDL4:inst9|clk (Fall) (setup and hold)
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -9.211
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -9.211       -78.147 Devide:inst5|clk 
+    Info:    -3.617       -17.146 VHDL4:inst9|clk 
+    Info:    -3.016       -55.541 clk_in 
+    Info:    -2.083       -19.596 Devide:inst10|clk 
+Info: Worst-case hold slack is -0.313
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -0.313        -0.464 clk_in 
+    Info:     0.401         0.000 Devide:inst10|clk 
+    Info:     0.402         0.000 VHDL4:inst9|clk 
+    Info:     0.417         0.000 Devide:inst5|clk 
+Info: No recovery paths to report
+Info: No removal paths to report
+Critical Warning: Found minimum pulse width or period violations. See Report Minimum Pulse Width for details.
+Info: The Metastability Analysis global option is set to OFF.
+Info: No synchronizer chains to report.
+Info: Analyzing Fast 1200mV 0C Model
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Critical Warning: The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning: From Devide:inst5|clk (Rise) to Devide:inst5|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst5|clk (Fall) to Devide:inst5|clk (Rise) (setup and hold)
+    Critical Warning: From clk_in (Rise) to Devide:inst5|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Rise) to Devide:inst5|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst5|clk (Rise) to Devide:inst5|clk (Fall) (setup and hold)
+    Critical Warning: From Devide:inst5|clk (Fall) to Devide:inst5|clk (Fall) (setup and hold)
+    Critical Warning: From clk_in (Rise) to Devide:inst5|clk (Fall) (setup and hold)
+    Critical Warning: From Devide:inst5|clk (Rise) to clk_in (Rise) (setup and hold)
+    Critical Warning: From Devide:inst5|clk (Fall) to clk_in (Rise) (setup and hold)
+    Critical Warning: From clk_in (Rise) to clk_in (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Rise) to clk_in (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Fall) to clk_in (Rise) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Rise) to clk_in (Rise) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Fall) to clk_in (Rise) (setup and hold)
+    Critical Warning: From clk_in (Rise) to Devide:inst10|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Rise) to Devide:inst10|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Fall) to Devide:inst10|clk (Rise) (setup and hold)
+    Critical Warning: From clk_in (Rise) to Devide:inst10|clk (Fall) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Rise) to Devide:inst10|clk (Fall) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Fall) to Devide:inst10|clk (Fall) (setup and hold)
+    Critical Warning: From clk_in (Rise) to VHDL4:inst9|clk (Rise) (setup and hold)
+    Critical Warning: From Devide:inst10|clk (Rise) to VHDL4:inst9|clk (Rise) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Rise) to VHDL4:inst9|clk (Rise) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Fall) to VHDL4:inst9|clk (Rise) (setup and hold)
+    Critical Warning: From clk_in (Rise) to VHDL4:inst9|clk (Fall) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Rise) to VHDL4:inst9|clk (Fall) (setup and hold)
+    Critical Warning: From VHDL4:inst9|clk (Fall) to VHDL4:inst9|clk (Fall) (setup and hold)
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -3.796
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -3.796       -30.781 Devide:inst5|clk 
+    Info:    -1.084        -3.229 VHDL4:inst9|clk 
+    Info:    -0.816        -8.914 clk_in 
+    Info:    -0.390        -2.450 Devide:inst10|clk 
+Info: Worst-case hold slack is -0.318
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -0.318        -0.645 clk_in 
+    Info:     0.186         0.000 VHDL4:inst9|clk 
+    Info:     0.187         0.000 Devide:inst10|clk 
+    Info:     0.193         0.000 Devide:inst5|clk 
+Info: No recovery paths to report
+Info: No removal paths to report
+Critical Warning: Found minimum pulse width or period violations. See Report Minimum Pulse Width for details.
+Info: The Metastability Analysis global option is set to OFF.
+Info: No synchronizer chains to report.
+Info: Design is not fully constrained for setup requirements
+Info: Design is not fully constrained for hold requirements
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 91 warnings
+    Info: Peak virtual memory: 235 megabytes
+    Info: Processing ended: Fri May 27 05:06:51 2016
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
+
+
